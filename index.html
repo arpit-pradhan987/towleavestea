@@ -1,540 +1,1975 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Leaves and a Bud | Organic Tea</title>
+
+    <!-- Fonts based on screenshot -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=BBH+Bogle&family=Bree+Serif&family=Butterfly+Kids&family=Cinzel:wght@400..900&family=Doto:wght@100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fira+Code:wght@300..700&family=GFS+Didot&family=Henny+Penny&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css">
-    <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
-    <script>new Lenis({ autoRaf: true, autoToggle: true, anchors: true, allowNestedScroll: true, naiveDimensions: true, stopInertiaOnNavigate: true })</script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        /* Colors exact-matched from screenshot */
+                        navPurple: '#2d2552',
+                        brandBlue: '#00a3df',
+                        darkButton: '#2d2552',
+                        textDark: '#333333',
+                        badgeOrange: '#f5a623',
+                        /* New colors from second screenshot */
+                        creamBg: '#f8f6f0',
+                        stickerPurple: '#d8b4e2'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #00a3df;
+            /* The exact blue background */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* SVG styling for precise icons from screenshot */
+        .nav-icon {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #000;
+        }
+
+        .floating-nav-container {
+            padding: 1rem 0 0 0;
+            /* Full width header */
+            width: 100%;
+        }
+
+        /* Hide scrollbar for carousel */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Cart pop animation */
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.4);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-pop {
+            animation: pop 0.3s ease-in-out;
+        }
+
+        /* NEW: Vibe Tag Styling based on image_d52319.jpg */
+        .vibe-tag {
+            background-color: #d8ebfa;
+            /* Light pastel blue from image */
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-family: '"Playfair Display"', serif;
+            font-size: 19px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .vibe-tag:hover {
+            background-color: #c0ddf6;
+            /* Slightly darker on hover */
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+    </style>
 </head>
 
 <body>
 
-    <section class="section1">
-        <div class="left-nav"></div>
-        <div class="fixedNav">
-            <p>Free US shipping for orders over $75</p>
-        </div>
-        <nav>
-            <div class="nav1 navs">
-                <button id="menu-btn" class="menu-btn">☰</button>
-                <div class="nav-links">
-                    <a href="#">Shop <i class="ri-arrow-down-s-line"></i></a>
-                    <a href="#">Learn <i class="ri-arrow-down-s-line"></i></a>
-                    <a href="#" class="rev-cont">
+    <!-- Exact top bar from screenshot -->
+    <div
+        class="bg-navPurple text-white text-[11px] font-bold text-center py-2 tracking-widest uppercase flex justify-center items-center">
+        FREE US SHIPPING FOR ORDERS OVER $75
+    </div>
+
+
+
+    <!-- Main content area matching the blue background and layout -->
+    <main class="relative w-100% h-[95vh] min-h-[600px] flex items-center overflow-hidden">
+        <!-- The distinct white rounded navigation bar inside the blue area -->
+        <header class="  absolute floating-nav-container  z-50 width-full top-0  ">
+            <div
+                class="bg-white rounded-xl border-[1px] border-solid  border-black px-6 py-3 shadow-md mx-auto max-w-[1500px] flex justify-between items-center h-[65px]">
+
+                <!-- Left Side: Navigation Links -->
+                <nav class="flex items-center space-x-6">
+                    <!-- Shop with down circle icon -->
+                    <a href="#" class="nav-link font-serif text-[18px]">
+                        Shop
+                        <svg class="nav-icon text-[#5c8a3f]" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="8 10 12 14 16 10"></polyline>
+                        </svg>
+                    </a>
+
+                    <!-- Learn with down circle icon -->
+                    <a href="#" class="nav-link font-serif text-[18px]">
+                        Learn
+                        <svg class="nav-icon text-[#5c8a3f]" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="8 10 12 14 16 10"></polyline>
+                        </svg>
+                    </a>
+
+                    <!-- Reviews with star icon -->
+                    <a href="#" class="nav-link font-serif text-[18px]">
                         Reviews
-                        <img src="./Assets/star-icon.png" width="35" alt="star">
-                        <!-- ↑ above fold, NO lazy -->
+                        <svg class="nav-icon" style="stroke: #f5a623; fill: #f5a623; width: 16px; height: 16px;"
+                            viewBox="0 0 24 24">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                            </polygon>
+                        </svg>
+                    </a>
+                </nav>
+
+                <!-- Center: Logo -->
+                <!-- The exact logo typography from the screenshot -->
+                <div
+                    class="absolute left-1/2 transform -translate-x-1/2 cursor-pointer flex flex-col items-center leading-none mt-1">
+                    <span class="font-serif text-[24px] tracking-tight text-black" style="letter-spacing: -0.5px;">two
+                        leaves</span>
+                    <span class="font-serif italic text-[18px] text-black -mt-1">and a bud</span>
+                </div>
+
+                <!-- Right Side: Secondary Links and Cart -->
+                <div
+                    class="flex items-center space-x-6 font-sans text-[11px] font-bold tracking-widest text-textDark uppercase">
+                    <a href="#" class="hover:text-black">My Account</a>
+                    <a href="#" class="hover:text-black">Cafe & Wholesale Partners</a>
+                    <a href="#" class="hover:text-black">Tea Journal</a>
+
+                    <!-- Cart Icon with badge -->
+                    <button class="relative hover:opacity-70 transition ml-2">
+                        <svg width="22" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <!-- Orange circle badge overlapping the cart -->
+                        <span id="cart-badge"
+                            class="absolute top-[8px] right-[-6px] bg-badgeOrange text-black text-[10px] w-[15px] h-[15px] rounded-full flex items-center justify-center font-bold border border-white transition-transform">0</span>
+                    </button>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- Left Side Text Content -->
+        <div class="absolute z-10 w-full max-w-[1400px] mx-auto px-10 flex left-0 bottom-[30px]">
+            <div class="w-[45%] text-white pt-10 ">
+                <!-- Exact heading typography -->
+                <h1 class="font-serif text-[75px] leading-[1.05] mb-8" style="letter-spacing: -1px;">
+                    A cup that fits<br>the moment.
+                </h1>
+
+                <!-- Exact paragraph typography -->
+                <p class="font-sans text-[18px] font-medium leading-tight mb-10 w-[90%]">
+                    From compostable whole leaf tea sachets and iced tea to tea lattes and matcha, we've got something
+                    for everyone.
+                </p>
+
+                <!-- Exact button styling -->
+                <a href="#"
+                    class="inline-block bg-darkButton text-white font-sans text-[15px] font-medium px-10 py-3.5 rounded-full hover:bg-opacity-90 transition">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Side: The precise image composition from screenshot -->
+        <!-- Since I don't have the exact transparent assets they use, I am positioning placeholder elements exactly where they appear in the image to recreate the composition structure over the blue background. -->
+        <!-- <div class="absolute right-0 top-0 w-[60%] h-full pointer-events-none">
+
+            <!-- White Sugar Bowl (Top Left) -->
+        <!-- <img src="https://images.unsplash.com/photo-1610724838637-25e22709e30a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+            class="absolute top-[15%] left-[5%] w-[250px] h-[250px] object-cover rounded-full shadow-2xl mix-blend-normal"
+            style="clip-path: circle(40%); filter: drop-shadow(0 20px 13px rgba(0,0,0,0.3));" alt="Sugar Bowl" /> -->
+
+        <!-- Main Focus: Blue Tea Box (Center Bottom) -->
+        <!-- Using a generic tea box image positioned exactly where the "Alpine Berry" box is -->
+        <!-- <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            class="absolute bottom-[10%] left-[25%] w-[320px] h-[380px] object-cover shadow-[20px_20px_30px_rgba(0,0,0,0.3)] transform rotate-[-2deg] rounded-sm"
+            alt="Tea Box" /> -->
+
+        <!-- Glass Tea Mug with red liquid (Bottom Right) -->
+        <!-- <img src="https://images.unsplash.com/photo-1576092762791-dd9e2220cad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+            class="absolute bottom-[20%] right-[15%] w-[280px] h-[220px] object-cover rounded-[40px] shadow-2xl"
+            alt="Glass Tea Mug" /> -->
+
+        <!-- Box in background (Top Right) -->
+        <!-- <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+            class="absolute top-[10%] right-[5%] w-[250px] h-[300px] object-cover shadow-xl opacity-90 transform rotate-[10deg]"
+            alt="Background Tea Box" /> -->
+
+        <!-- Raspberries bowl (Far Right Edge) -->
+        <!-- <div
+            class="absolute top-[35%] -right-[5%] w-[150px] h-[150px] bg-red-600 rounded-full shadow-lg overflow-hidden flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1577003833610-d02f78bdf1b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                class="w-full h-full object-cover" alt="Raspberries">
+        </div> -->
+
+        <!-- Blackberry (Bottom Edge) -->
+        <!-- <img src="https://images.unsplash.com/photo-1615485925600-97237c4fc1ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            class="absolute bottom-[5%] left-[20%] w-[50px] h-[50px] object-cover rounded-full shadow-md mix-blend-multiply"
+            alt="Blackberry" />
+        </div> -->
+
+        <!-- background image -->
+        <img src="./Assets/AlpineBerry.webp" class="absolute inset-0 w-full h-full object-cover" alt="">
+
+
+
+
+    </main>
+    <!-- Bottom right floating arrow down button -->
+    <button
+        class="absolute bottom-[-1rem] right-6 bg-darkButton text-white rounded-full w-12 h-12 flex items-center justify-center hover:bg-opacity-90 transition z-50 shadow-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+    </button>
+
+    <!-- NEW SECTION: Quote and Best Sellers Badge -->
+    <section class="bg-creamBg w-full py-32 flex flex-col items-center justify-center relative z-10">
+
+        <!-- Exact Quote Typography -->
+        <h2 class="font-serif text-[42px] leading-[1.3] text-center text-[#222] mb-16 tracking-tight">
+            A <span class="italic">great</span> cup starts with a careful<br>
+            pluck - the top two leaves and a bud.
+        </h2>
+
+        <!-- Best Sellers Sticker Badge -->
+        <!-- Using custom border, solid shadow, and rotation to match the image exactly -->
+        <div
+            class="inline-block bg-stickerPurple text-black font-sans font-bold uppercase text-[26px] tracking-wide px-5 py-1 border-[2.5px] border-black rounded-[6px] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 cursor-pointer hover:rotate-0 transition-transform duration-200">
+            BEST SELLERS
+        </div>
+
+    </section>
+
+    <!-- NEW SECTION: Interactive Product Carousel -->
+    <section class="bg-creamBg w-full pb-32 relative px-4 md:px-10 z-10">
+        <div class="relative max-w-[1400px] mx-auto">
+
+            <!-- Horizontal Scrolling Container -->
+            <div id="product-carousel"
+                class="flex gap-6 overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-8 pt-4 scroll-smooth cursor-grab active:cursor-grabbing">
+
+                <!-- Product Card 1: Green Tea -->
+                <div class="min-w-[300px] w-[300px] flex-shrink-0 snap-start flex flex-col group">
+                    <div
+                        class="relative bg-[#bde892] rounded-xl p-4 h-[320px] flex items-center justify-center border border-[#a8cf82] transition-transform duration-300 group-hover:-translate-y-1">
+                        <!-- Category Badge -->
+                        <div
+                            class="absolute top-4 left-4 bg-white text-black text-[11px] font-bold tracking-widest px-2 py-1 uppercase rounded-sm border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10">
+                            TEA SACHETS</div>
+                        <!-- Rating -->
+                        <div
+                            class="absolute top-4 right-4 text-black text-[12px] font-medium flex items-center gap-1 z-10">
+                            <span>★</span> 4.71 (84)
+                        </div>
+                        <!-- Product Image (Placeholder mimicking green tea box) -->
+                        <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                            class="w-[65%] object-contain mix-blend-multiply drop-shadow-xl"
+                            alt="Organic Tropical Green Tea" />
+
+                        <!-- + Add Button -->
+                        <button
+                            class="add-btn absolute bottom-4 right-4 bg-white border border-gray-300 rounded-lg w-12 h-12 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-black transition-colors z-20 shadow-sm">
+                            <span class="text-xl font-light leading-none -mb-1">+</span>
+                            <span class="text-[11px] font-medium leading-none">Add</span>
+                        </button>
+                    </div>
+                    <!-- Text Content -->
+                    <div class="pt-5 px-1">
+                        <h3 class="font-serif text-[22px] text-[#222] mb-1.5 leading-tight">Organic Tropical Green Tea
+                        </h3>
+                        <p class="font-sans text-[12px] text-[#555] font-semibold mb-2 uppercase tracking-wide">From
+                            $11.95</p>
+                        <p class="font-sans text-[14px] text-[#666] leading-[1.4]">Our Organic Tropical Green is a
+                            fruity and fun take on a classic green tea.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Herbal Trio -->
+                <div class="min-w-[300px] w-[300px] flex-shrink-0 snap-start flex flex-col group">
+                    <div
+                        class="relative bg-[#ffdda1] rounded-xl p-4 h-[320px] flex items-center justify-center border border-[#e6c791] transition-transform duration-300 group-hover:-translate-y-1">
+                        <div
+                            class="absolute top-4 left-4 bg-white text-black text-[11px] font-bold tracking-widest px-2 py-1 uppercase rounded-sm border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10">
+                            GIFTS & SAMPLERS</div>
+                        <div
+                            class="absolute top-4 right-4 text-black text-[12px] font-medium flex items-center gap-1 z-10">
+                            <span>★</span> 5 (2)
+                        </div>
+                        <!-- Placeholder for multi-box layout -->
+                        <div class="relative w-full h-full flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                                class="w-[45%] absolute left-[10%] bottom-[15%] object-contain mix-blend-multiply drop-shadow-xl z-20"
+                                alt="Box 1" />
+                            <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                                class="w-[50%] absolute right-[15%] top-[20%] object-contain mix-blend-multiply drop-shadow-xl z-10"
+                                alt="Box 2" />
+                        </div>
+
+                        <button
+                            class="add-btn absolute bottom-4 right-4 bg-white border border-gray-300 rounded-lg w-12 h-12 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-black transition-colors z-30 shadow-sm">
+                            <span class="text-xl font-light leading-none -mb-1">+</span>
+                            <span class="text-[11px] font-medium leading-none">Add</span>
+                        </button>
+                    </div>
+                    <div class="pt-5 px-1">
+                        <h3 class="font-serif text-[22px] text-[#222] mb-1.5 leading-tight">Herbal Tea Trio</h3>
+                        <p class="font-sans text-[12px] text-[#555] font-semibold mb-2 uppercase tracking-wide">$33.30
+                        </p>
+                        <p class="font-sans text-[14px] text-[#666] leading-[1.4]">A trio of soothing herbal teas.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: Naked Sachets -->
+                <div class="min-w-[300px] w-[300px] flex-shrink-0 snap-start flex flex-col group">
+                    <div
+                        class="relative bg-[#a6e6c4] rounded-xl p-4 h-[320px] flex items-center justify-center border border-[#95ceb0] transition-transform duration-300 group-hover:-translate-y-1">
+                        <div
+                            class="absolute top-4 left-4 bg-white text-black text-[11px] font-bold tracking-widest px-2 py-1 uppercase rounded-sm border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10">
+                            NAKED SACHETS</div>
+                        <div
+                            class="absolute top-4 right-4 text-black text-[12px] font-medium flex items-center gap-1 z-10">
+                            <span>★</span> 5 (11)
+                        </div>
+                        <!-- Placeholder for mint green pouch -->
+                        <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                            class="w-[65%] h-[75%] object-cover rounded-md drop-shadow-xl" alt="Organic Peppermint" />
+
+                        <button
+                            class="add-btn absolute bottom-4 right-4 bg-white border border-gray-300 rounded-lg w-12 h-12 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-black transition-colors z-20 shadow-sm">
+                            <span class="text-xl font-light leading-none -mb-1">+</span>
+                            <span class="text-[11px] font-medium leading-none">Add</span>
+                        </button>
+                    </div>
+                    <div class="pt-5 px-1">
+                        <h3 class="font-serif text-[22px] text-[#222] mb-1.5 leading-tight">Organic Peppermint -<br>50
+                            Naked Tea Sachets</h3>
+                        <p class="font-sans text-[12px] text-[#555] font-semibold mb-2 uppercase tracking-wide">$21.95
+                        </p>
+                        <p class="font-sans text-[14px] text-[#666] leading-[1.4]">Our organic Peppermint tea is made
+                            from peppermint grown in Washington State.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 4: Bamboo Chest -->
+                <div class="min-w-[300px] w-[300px] flex-shrink-0 snap-start flex flex-col group">
+                    <div
+                        class="relative bg-[#c2e2fb] rounded-xl p-4 h-[320px] flex items-center justify-center border border-[#aecbe1] transition-transform duration-300 group-hover:-translate-y-1">
+                        <div
+                            class="absolute top-4 left-4 bg-white text-black text-[11px] font-bold tracking-widest px-2 py-1 uppercase rounded-sm border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10">
+                            GIFTS & SAMPLERS</div>
+                        <div
+                            class="absolute top-4 right-4 text-black text-[12px] font-medium flex items-center gap-1 z-10">
+                            <span>★</span> 4.85 (41)
+                        </div>
+                        <!-- Placeholder for wooden chest -->
+                        <img src="https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                            class="w-[80%] h-[50%] object-cover rounded-sm drop-shadow-2xl"
+                            alt="Classic Bamboo Tea Chest" />
+
+                        <button
+                            class="add-btn absolute bottom-4 right-4 bg-white border border-gray-300 rounded-lg w-12 h-12 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-black transition-colors z-20 shadow-sm">
+                            <span class="text-xl font-light leading-none -mb-1">+</span>
+                            <span class="text-[11px] font-medium leading-none">Add</span>
+                        </button>
+                    </div>
+                    <div class="pt-5 px-1">
+                        <h3 class="font-serif text-[22px] text-[#222] mb-1.5 leading-tight">Classic Bamboo Tea Chest
+                        </h3>
+                        <p class="font-sans text-[12px] text-[#555] font-semibold mb-2 uppercase tracking-wide">$42.95
+                        </p>
+                        <p class="font-sans text-[14px] text-[#666] leading-[1.4]">This 6-slot bamboo box offers a
+                            sampling of eight sachets each of six of our best selling teas.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 5: Latte Mix -->
+                <div class="min-w-[300px] w-[300px] flex-shrink-0 snap-start flex flex-col group">
+                    <div
+                        class="relative bg-[#e3fba0] rounded-xl p-4 h-[320px] flex items-center justify-center border border-[#cbe18f] transition-transform duration-300 group-hover:-translate-y-1">
+                        <div
+                            class="absolute top-4 left-4 bg-white text-black text-[11px] font-bold tracking-widest px-2 py-1 uppercase rounded-sm border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10">
+                            LATTE MIX</div>
+                        <div
+                            class="absolute top-4 right-4 text-black text-[12px] font-medium flex items-center gap-1 z-10">
+                            <span>★</span> 4.9 (12)
+                        </div>
+                        <!-- Placeholder for matcha pouch -->
+                        <img src="https://images.unsplash.com/photo-1582787399201-9452b41255e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                            class="w-[50%] h-[70%] object-cover rounded-md drop-shadow-xl" alt="Matcha Mix" />
+
+                        <button
+                            class="add-btn absolute bottom-4 right-4 bg-white border border-gray-300 rounded-lg w-12 h-12 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-black transition-colors z-20 shadow-sm">
+                            <span class="text-xl font-light leading-none -mb-1">+</span>
+                            <span class="text-[11px] font-medium leading-none">Add</span>
+                        </button>
+                    </div>
+                    <div class="pt-5 px-1">
+                        <h3 class="font-serif text-[22px] text-[#222] mb-1.5 leading-tight">Nice Matcha Powder</h3>
+                        <p class="font-sans text-[12px] text-[#555] font-semibold mb-2 uppercase tracking-wide">From
+                            $12.95</p>
+                        <p class="font-sans text-[14px] text-[#666] leading-[1.4]">Our Nice Matcha is a sweetened,
+                            powdered mix meant to make lattes simple.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Scroll Arrow Button (Floating) -->
+            <button id="scroll-right"
+                class="hidden md:flex absolute right-[-24px] top-[160px] transform -translate-y-1/2 bg-white text-black rounded-full w-[48px] h-[48px] items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform z-30 border border-gray-100">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Scroll Progress Lines -->
+        <div class="flex justify-center mt-6 gap-2">
+            <div class="w-12 h-[2px] bg-black"></div>
+            <div class="w-12 h-[2px] bg-gray-300"></div>
+            <div class="w-12 h-[2px] bg-gray-300"></div>
+        </div>
+
+        <!-- Explore All Teas Button -->
+        <div class="flex justify-center mt-12">
+            <a href="#"
+                class="inline-block bg-transparent text-black border border-black font-sans text-[15px] font-medium px-8 py-2.5 rounded-full hover:bg-white hover:shadow-sm transition-all">
+                Explore All Teas
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Full Width Black Divider Line -->
+    <div class="w-full border-t border-black relative z-10"></div>
+
+    <!-- NEW SECTION: Discover / Search -->
+    <section class="bg-creamBg w-full pt-20 pb-32 px-4 md:px-10 z-10 relative">
+        <div class="max-w-[1400px] mx-auto flex flex-col items-start lg:pl-[10%]">
+
+            <!-- Orange Discover Sticker Badge -->
+            <div
+                class="inline-block bg-[#ff7a45] text-black font-sans font-black uppercase text-[30px] tracking-tight px-3 border-[2.5px] border-black rounded-[5px] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 mb-8 ml-2">
+                DISCOVER
+            </div>
+
+            <!-- Headings -->
+            <h2 class="font-serif text-[40px] md:text-[54px] leading-[1.15] text-[#222] tracking-tight">
+                Let's find a cup that fits the <span class="italic">moment</span>.
+            </h2>
+            <h2 class="font-serif text-[40px] md:text-[54px] leading-[1.15] text-[#222] tracking-tight mb-12">
+                What are you searching for?
+            </h2>
+
+            <!-- Search Input -->
+            <div class="w-full max-w-[400px]">
+                <input type="text" placeholder="green te"
+                    class="w-full bg-transparent border-[1.5px] border-gray-400 rounded-[14px] px-6 py-3 font-serif text-[28px] text-gray-500 placeholder-gray-300 focus:outline-none focus:border-black focus:ring-0 transition-colors" />
+            </div>
+
+            <!-- NEW SECTION: Vibe Tags -->
+            <div class="mt-16 w-full">
+                <p class="font-sans text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-6">
+                    OR EXPLORE BY VIBE...
+                </p>
+
+                <div class="flex flex-wrap gap-3">
+                    <a href="#" class="vibe-tag">A Sweet Treat</a>
+                    <a href="#" class="vibe-tag">Evening Unwind</a>
+                    <a href="#" class="vibe-tag">Focused & Clear</a>
+                    <a href="#" class="vibe-tag">Caffeine!</a>
+                    <a href="#" class="vibe-tag">Caffeine-Free</a>
+
+                    <a href="#" class="vibe-tag">Ceremony-Worthy</a>
+                    <a href="#" class="vibe-tag">Whole Leaf</a>
+                    <a href="#" class="vibe-tag">Over Ice</a>
+                    <a href="#" class="vibe-tag">Lattes</a>
+                    <a href="#" class="vibe-tag">Black Tea</a>
+                    <a href="#" class="vibe-tag">Green Tea</a>
+
+                    <a href="#" class="vibe-tag">Herbal Tea</a>
+                    <a href="#" class="vibe-tag">Organic</a>
+                    <a href="#" class="vibe-tag">Barista Favorite</a>
+                    <a href="#" class="vibe-tag">Calm & Cozy</a>
+                    <a href="#" class="vibe-tag">Fruit Forward</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Our Origins (Forest Background) -->
+    <section class="relative w-full py-32 min-h-[140vh] overflow-hidden flex flex-col justify-center items-center">
+        <!-- Forest Background Image -->
+        <!-- Using a lush green pine forest image to match the visual aesthetic -->
+        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            class="absolute inset-0 w-full h-full object-cover mix-blend-normal" alt="Lush Green Forest" />
+
+        <!-- Overlay to slightly adjust the brightness so the text pops perfectly -->
+        <div class="absolute inset-0 bg-black bg-opacity-20 pointer-events-none"></div>
+
+        <!-- Centered 'OUR ORIGINS' Sticker (Positioned near the top transition) -->
+        <div
+            class="absolute top-[8%] left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center justify-center w-full pointer-events-none">
+            <div
+                class="inline-block bg-[#99bbf0] text-black font-sans font-black uppercase text-[36px] md:text-[48px] tracking-tight px-5 py-1 leading-none border-[3px] border-black rounded-[6px] shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 pointer-events-auto cursor-pointer hover:rotate-0 transition-transform duration-200">
+                OUR ORIGINS
+            </div>
+        </div>
+
+        <!-- Right Side Circular Kettle Badge (Positioned near top right) -->
+        <div
+            class="absolute top-[5%] md:top-[12%] right-[5%] md:right-[10%] w-[150px] h-[150px] bg-[#a2d83b] rounded-full z-10 flex items-center justify-center transform hover:scale-105 transition-transform duration-300 cursor-pointer shadow-xl">
+
+            <!-- Circular Text SVG wrapped inside the green circle -->
+            <svg viewBox="0 0 150 150" class="absolute inset-0 w-full h-full">
+                <!-- Top Curve (left to right) -->
+                <path id="top-curve" d="M 22,75 A 53,53 0 0,1 128,75" fill="none" />
+                <!-- Bottom Curve (right to left so text stays upright) -->
+                <path id="bottom-curve" d="M 128,75 A 53,53 0 0,1 22,75" fill="none" />
+
+                <text font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="black"
+                    letter-spacing="1">
+                    <textPath href="#top-curve" startOffset="50%" text-anchor="middle">FROM FARM TO KETTLE</textPath>
+                </text>
+                <text font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="black"
+                    letter-spacing="1">
+                    <textPath href="#bottom-curve" startOffset="50%" text-anchor="middle">FROM MOUNTAINS TO MUG
+                    </textPath>
+                </text>
+            </svg>
+
+            <!-- Inner White Kettle Graphic (Custom SVG to match the screenshot) -->
+            <svg width="50" height="50" viewBox="0 0 100 100" class="z-20 relative top-1">
+                <!-- Handle -->
+                <path d="M 25 40 Q 25 10 50 10 Q 75 10 75 40" fill="none" stroke="black" stroke-width="5"
+                    stroke-linecap="round" />
+                <!-- Spout -->
+                <path d="M 20 50 Q 5 50 5 35 Q 15 40 20 45" fill="none" stroke="black" stroke-width="5"
+                    stroke-linecap="round" />
+                <!-- Body -->
+                <rect x="20" y="40" width="60" height="45" rx="8" fill="white" stroke="black" stroke-width="5" />
+                <!-- Lid -->
+                <path d="M 35 40 L 38 32 L 62 32 L 65 40 Z" fill="white" stroke="black" stroke-width="5"
+                    stroke-linejoin="round" />
+                <!-- Lid Knob -->
+                <circle cx="50" cy="26" r="4" fill="black" />
+                <!-- Tiny Red Branding Dot (Matches real logo detail) -->
+                <circle cx="68" cy="72" r="4" fill="#e03a3e" />
+            </svg>
+
+        </div>
+
+        <!-- NEW: Giant BORN IN COLORADO text -->
+        <!-- Added scaleY to slightly condense the text vertically mimicking the real site's custom font -->
+        <div class="relative z-10 flex flex-col items-center justify-center w-full mt-[10%] mb-[8%] md:mb-[12%]">
+            <h2 class="font-sans text-white text-[16vw] md:text-[150px] font-black uppercase leading-[0.85] tracking-tighter text-center drop-shadow-2xl"
+                style="transform: scaleY(1.15);">
+                BORN IN<br>COLORADO
+            </h2>
+        </div>
+
+        <!-- NEW: Richard Founder Paragraph -->
+        <div class="relative z-10 w-full max-w-[1100px] mx-auto px-6 text-center mb-[10%]">
+            <p class="font-serif text-white text-[28px] md:text-[42px] leading-[1.3] tracking-tight"
+                style="text-shadow: 0 4px 16px rgba(0,0,0,0.6);">
+                Our founder, Richard, started Two Leaves and a Bud in pursuit of a truly great cup. Two decades later,
+                that same care and curiosity guide everything we make.
+            </p>
+        </div>
+
+        <!-- UPDATE: Circular Illustration Badges WITH Text underneath and the Button -->
+        <div
+            class="relative z-10 w-full max-w-[900px] mx-auto px-6 flex flex-col items-center justify-center mt-auto pb-20">
+
+            <div class="flex justify-center items-start gap-12 md:gap-24 mb-16">
+                <!-- Leaf Icon & Text -->
+                <div class="flex flex-col items-center max-w-[180px] text-center gap-4">
+                    <div
+                        class="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-full border-[2.5px] border-black bg-[#a6e622] overflow-hidden relative hover:scale-105 transition-transform duration-300 shadow-[2px_2px_10px_rgba(0,0,0,0.5)]">
+                        <svg viewBox="0 0 100 100"
+                            class="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-[80%] h-[80%]">
+                            <path d="M50 100 Q40 50 20 40 Q40 30 50 60 Q60 30 80 40 Q60 50 50 100" fill="#2d6a4f"
+                                stroke="black" stroke-width="3" stroke-linejoin="round" />
+                            <path d="M50 60 Q40 20 20 10 Q40 0 60 20 Q50 40 50 60" fill="#40916c" stroke="black"
+                                stroke-width="3" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <p
+                        class="font-sans text-white text-[13px] font-black uppercase tracking-wider leading-tight drop-shadow-md">
+                        QUALITY, WITHOUT PRETENSE</p>
+                </div>
+
+                <!-- Globe Icon & Text -->
+                <div class="flex flex-col items-center max-w-[180px] text-center gap-4">
+                    <div
+                        class="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-full border-[2.5px] border-black bg-[#80a9f0] overflow-hidden relative hover:scale-105 transition-transform duration-300 shadow-[2px_2px_10px_rgba(0,0,0,0.5)]">
+                        <svg viewBox="0 0 100 100"
+                            class="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-full h-full">
+                            <!-- Landmasses -->
+                            <path d="M -10,80 Q 20,40 50,75 T 110,75 L 110,120 L -10,120 Z" fill="#6da616"
+                                stroke="black" stroke-width="2" />
+                            <path d="M 10,-10 Q 50,40 90,-10 Z" fill="#6da616" stroke="black" stroke-width="2" />
+                            <!-- Cute Face -->
+                            <circle cx="35" cy="88" r="5" fill="black" />
+                            <circle cx="65" cy="88" r="5" fill="black" />
+                            <path d="M 45 92 Q 50 96 55 92" fill="none" stroke="black" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <p
+                        class="font-sans text-white text-[13px] font-black uppercase tracking-wider leading-tight drop-shadow-md">
+                        CARE FOR PEOPLE & PLANET</p>
+                </div>
+
+                <!-- Mountain Icon & Text -->
+                <div class="flex flex-col items-center max-w-[180px] text-center gap-4">
+                    <div
+                        class="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-full border-[2.5px] border-black bg-white overflow-hidden relative hover:scale-105 transition-transform duration-300 shadow-[2px_2px_10px_rgba(0,0,0,0.5)]">
+                        <svg viewBox="0 0 100 100"
+                            class="absolute bottom-[-5px] left-1/2 transform -translate-x-1/2 w-full h-full">
+                            <!-- Sun/Moon -->
+                            <circle cx="30" cy="35" r="15" fill="#f58220" stroke="black" stroke-width="2" />
+                            <!-- Background Mountain -->
+                            <path d="M -10,100 L 40,40 L 90,100 Z" fill="#a0c4ff" stroke="black" stroke-width="2"
+                                stroke-linejoin="round" />
+                            <!-- Foreground Mountain -->
+                            <path d="M 20,100 L 65,50 L 110,100 Z" fill="#a5d354" stroke="black" stroke-width="2"
+                                stroke-linejoin="round" />
+                            <!-- Snow cap on front mountain -->
+                            <path d="M 65,50 L 53,65 L 60,70 L 70,62 L 77,65 Z" fill="white" stroke="black"
+                                stroke-width="2" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <p
+                        class="font-sans text-white text-[13px] font-black uppercase tracking-wider leading-tight drop-shadow-md">
+                        TRANSPARENT SOURCING</p>
+                </div>
+            </div>
+
+            <!-- "Our Story" Button -->
+            <a href="#"
+                class="inline-block bg-white text-black font-sans text-[16px] font-medium px-12 py-3 rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+                Our Story
+            </a>
+
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Reviews Intro -->
+    <section class="bg-creamBg w-full pt-24 pb-8 px-4 md:px-10 z-10 relative">
+        <div class="max-w-[1400px] mx-auto flex flex-col items-start lg:pl-[10%]">
+
+            <!-- Green Reviews Sticker Badge -->
+            <div
+                class="inline-block bg-[#8cc63f] text-black font-sans font-black uppercase text-[30px] tracking-tight px-3 border-[2.5px] border-black rounded-[5px] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 mb-8 ml-2 cursor-pointer hover:rotate-0 transition-transform duration-200">
+                REVIEWS
+            </div>
+
+            <!-- Headings -->
+            <h2 class="font-serif text-[40px] md:text-[54px] leading-[1.15] text-[#222] tracking-tight">
+                Loved by tea people <span class="italic">everywhere</span>.
+            </h2>
+            <h2 class="font-serif text-[40px] md:text-[54px] leading-[1.15] text-[#222] tracking-tight mb-16">
+                Here's what they're saying.
+            </h2>
+
+        </div>
+
+        <!-- NEW: Colorful Reviews Carousel -->
+        <div class="relative max-w-[1500px] mx-auto w-full mb-12">
+            <div id="reviews-carousel"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 pb-8 pt-2 px-4 md:px-10 w-full">
+
+                <!-- Review Card 1 (Peach/Orange) -->
+                <div class="min-h-[480px] flex flex-col rounded-[12px] border border-black hover:-translate-y-1 transition-transform duration-300"
+                    style="background-color: #f7b496;">
+                    <div class="p-8 flex-grow flex flex-col items-center justify-center text-center">
+                        <p class="font-serif text-[24px] text-[#222] leading-[1.3] mb-6">"The right amount of spice."
+                        </p>
+                        <p class="font-sans text-[13px] text-[#444]">Angelina R.</p>
+                    </div>
+                    <!-- Bottom Product Area -->
+                    <div class="mx-3 mb-3 rounded-[8px] border border-black p-3 flex items-center justify-between"
+                        style="background-color: #eb7448;">
+                        <div class="w-[40px] h-[50px] flex items-center justify-center bg-white/20 rounded">
+                            <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                alt="Chai" class="w-[80%] h-[80%] object-contain mix-blend-multiply" />
+                        </div>
+                        <div class="flex-1 px-3">
+                            <p
+                                class="font-sans text-[10px] md:text-[11px] font-bold uppercase leading-[1.15] text-black text-center tracking-wide">
+                                Organic<br>Mountain<br>High Chai</p>
+                        </div>
+                        <button
+                            class="bg-white text-black font-sans text-[14px] px-4 py-2 rounded-full border border-black hover:bg-gray-50 transition-colors shadow-sm">Shop</button>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 (Mint Green) -->
+                <div class="min-h-[480px] flex flex-col rounded-[12px] border border-black hover:-translate-y-1 transition-transform duration-300"
+                    style="background-color: #b2ea84;">
+                    <div class="p-8 flex-grow flex flex-col items-center justify-center text-center">
+                        <p class="font-serif text-[20px] text-[#222] leading-[1.4] mb-6">"This drink is incredibly
+                            refreshing, especially when served over ice. It's light, crisp, and instantly cooling,
+                            making it perfect for a quick refresh any time of day."</p>
+                        <p class="font-sans text-[13px] text-[#444]">Jacob K.</p>
+                    </div>
+                    <div class="mx-3 mb-3 rounded-[8px] border border-black p-3 flex items-center justify-between"
+                        style="background-color: #80cc42;">
+                        <div class="w-[40px] h-[50px] flex items-center justify-center bg-white/20 rounded">
+                            <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                alt="Matcha Mint" class="w-[90%] h-[90%] object-contain mix-blend-multiply" />
+                        </div>
+                        <div class="flex-1 px-3">
+                            <p
+                                class="font-sans text-[10px] md:text-[11px] font-bold uppercase leading-[1.15] text-black text-center tracking-wide">
+                                Organic<br>Matcha<br>Mint</p>
+                        </div>
+                        <button
+                            class="bg-white text-black font-sans text-[14px] px-4 py-2 rounded-full border border-black hover:bg-gray-50 transition-colors shadow-sm">Shop</button>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 (Yellow) -->
+                <div class="min-h-[480px] flex flex-col rounded-[12px] border border-black hover:-translate-y-1 transition-transform duration-300"
+                    style="background-color: #ffd85f;">
+                    <div class="p-8 flex-grow flex flex-col items-center justify-center text-center">
+                        <p class="font-serif text-[20px] text-[#222] leading-[1.4] mb-6">"One sip and you can feel the
+                            difference—clean energy, rich flavor, and all the good stuff your body loves. Literally
+                            liquid GOLD."</p>
+                        <p class="font-sans text-[13px] text-[#444]">Harrison G.</p>
+                    </div>
+                    <div class="mx-3 mb-3 rounded-[8px] border border-black p-3 flex items-center justify-between"
+                        style="background-color: #fcb316;">
+                        <div class="w-[40px] h-[50px] flex items-center justify-center bg-white/20 rounded">
+                            <img src="https://images.unsplash.com/photo-1582787399201-9452b41255e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                alt="Golden Latte" class="w-[80%] h-[80%] object-contain mix-blend-multiply" />
+                        </div>
+                        <div class="flex-1 px-3">
+                            <p
+                                class="font-sans text-[10px] md:text-[11px] font-bold uppercase leading-[1.15] text-black text-center tracking-wide">
+                                Two Roots<br>Golden<br>Latte Mix</p>
+                        </div>
+                        <button
+                            class="bg-white text-black font-sans text-[14px] px-4 py-2 rounded-full border border-black hover:bg-gray-50 transition-colors shadow-sm">Shop</button>
+                    </div>
+                </div>
+
+                <!-- Review Card 4 (Lime Green) -->
+                <div class="min-h-[480px] flex flex-col rounded-[12px] border border-black hover:-translate-y-1 transition-transform duration-300"
+                    style="background-color: #bced76;">
+                    <div class="p-8 flex-grow flex flex-col items-center justify-center text-center">
+                        <p class="font-serif text-[24px] text-[#222] leading-[1.3] mb-6">"Soo tasty and energizing."</p>
+                        <p class="font-sans text-[13px] text-[#444]">Gracie M.</p>
+                    </div>
+                    <div class="mx-3 mb-3 rounded-[8px] border border-black p-3 flex items-center justify-between"
+                        style="background-color: #84cc37;">
+                        <div class="w-[40px] h-[50px] flex items-center justify-center bg-white/20 rounded">
+                            <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                alt="Tropical Green" class="w-[80%] h-[80%] object-contain mix-blend-multiply" />
+                        </div>
+                        <div class="flex-1 px-3">
+                            <p
+                                class="font-sans text-[10px] md:text-[11px] font-bold uppercase leading-[1.15] text-black text-center tracking-wide">
+                                Organic<br>Tropical<br>Green Tea</p>
+                        </div>
+                        <button
+                            class="bg-white text-black font-sans text-[14px] px-4 py-2 rounded-full border border-black hover:bg-gray-50 transition-colors shadow-sm">Shop</button>
+                    </div>
+                </div>
+
+                <!-- Review Card 5 (Purple) -->
+                <div class="min-h-[480px] flex flex-col rounded-[12px] border border-black hover:-translate-y-1 transition-transform duration-300"
+                    style="background-color: #dbbdec;">
+                    <div class="p-8 flex-grow flex flex-col items-center justify-center text-center">
+                        <p class="font-serif text-[24px] text-[#222] leading-[1.3] mb-6">"The perfect start to my day."
+                        </p>
+                        <p class="font-sans text-[13px] text-[#444]">Jorge F.</p>
+                    </div>
+                    <div class="mx-3 mb-3 rounded-[8px] border border-black p-3 flex items-center justify-between"
+                        style="background-color: #c892e5;">
+                        <div class="w-[40px] h-[50px] flex items-center justify-center bg-white/20 rounded">
+                            <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                alt="Jasmine Petal" class="w-[80%] h-[80%] object-contain mix-blend-multiply" />
+                        </div>
+                        <div class="flex-1 px-3">
+                            <p
+                                class="font-sans text-[10px] md:text-[11px] font-bold uppercase leading-[1.15] text-black text-center tracking-wide">
+                                Jasmine<br>Petal</p>
+                        </div>
+                        <button
+                            class="bg-white text-black font-sans text-[14px] px-4 py-2 rounded-full border border-black hover:bg-gray-50 transition-colors shadow-sm">Shop</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Cafe & Wholesale Partners -->
+    <section class="w-full flex flex-col md:flex-row h-auto md:h-[650px] relative z-10">
+
+        <!-- Left Side: Image -->
+        <div class="w-full md:w-1/2 h-[400px] md:h-full relative">
+            <!-- Using a high-quality iced matcha Unsplash placeholder to match the vibe -->
+            <img src="https://images.unsplash.com/photo-1622240506921-042a4e71c172?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                alt="Iced Matcha Latte" class="w-full h-full object-cover object-center" />
+        </div>
+
+        <!-- Right Side: Dark Purple Background & Text -->
+        <div class="w-full md:w-1/2 bg-navPurple flex flex-col justify-center px-10 md:px-20 py-20 md:py-0">
+
+            <h2 class="font-serif text-[46px] md:text-[64px] leading-[1.1] text-white tracking-tight mb-6">
+                Our Cafe &<br>
+                Wholesale Partners
+            </h2>
+
+            <p class="font-sans text-[20px] text-white leading-[1.4] mb-10 max-w-[480px]">
+                From local cafés to national chains, our teas power thousands of baristas every day.
+            </p>
+
+            <div>
+                <a href="#"
+                    class="inline-block bg-white text-black font-sans text-[16px] font-medium px-8 py-3.5 rounded-full hover:bg-gray-100 transition-colors shadow-sm">
+                    Learn More
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NEW SECTION: Barista Blends / Lattes -->
+    <section
+        class="w-full bg-[#a86d38] py-32 relative z-10 flex flex-col items-center justify-center overflow-hidden min-h-[450px]">
+
+        <!-- Center Content -->
+        <div class="flex flex-col items-center z-10 relative px-4 w-full max-w-[1200px]">
+
+            <!-- Our Lattes Yellow Sticker -->
+            <div
+                class="inline-block bg-[#f4d193] text-black font-sans font-black uppercase text-[26px] md:text-[32px] tracking-tight px-4 py-0 border-[2.5px] border-black rounded-[5px] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 mb-8">
+                OUR LATTES
+            </div>
+
+            <!-- Main Heading (Condensed & Bold) -->
+            <h2 class="font-sans text-white text-[9vw] md:text-[75px] font-black uppercase leading-[0.9] tracking-tighter text-center mb-6 drop-shadow-sm"
+                style="transform: scaleY(1.15);">
+                BARISTA BLENDS FOR EVERY MOOD
+            </h2>
+
+            <!-- Subheading -->
+            <p class="font-mono text-white text-[12px] md:text-[14px] tracking-[0.2em] uppercase font-bold mt-6">
+                (No training required)
+            </p>
+        </div>
+
+        <!-- Right Side Circular Badge (Purple) -->
+        <div
+            class="hidden md:flex absolute right-[8%] top-[45%] transform -translate-y-1/2 w-[160px] h-[160px] bg-[#d2a3dc] border-[2px] border-black rounded-full z-10 items-center justify-center rotate-12 cursor-pointer hover:rotate-0 hover:scale-105 transition-all duration-300">
+
+            <!-- Circular Text SVG wrapped inside the purple circle -->
+            <svg viewBox="0 0 160 160" class="absolute inset-0 w-full h-full">
+                <!-- Top Curve (left to right) -->
+                <path id="purple-top" d="M 24,80 A 56,56 0 0,1 136,80" fill="none" />
+                <!-- Bottom Curve (right to left so text is upright) -->
+                <path id="purple-bottom" d="M 136,80 A 56,56 0 0,1 24,80" fill="none" />
+
+                <text font-family="'Inter', sans-serif" font-weight="800" font-size="12.5" fill="black"
+                    letter-spacing="1.5">
+                    <textPath href="#purple-top" startOffset="50%" text-anchor="middle">DESIGNED FOR EASE</textPath>
+                </text>
+                <text font-family="'Inter', sans-serif" font-weight="800" font-size="10" fill="black"
+                    letter-spacing="0.5">
+                    <textPath href="#purple-bottom" startOffset="50%" text-anchor="middle">EASY TO MAKE, HARD TO FORGET
+                    </textPath>
+                </text>
+            </svg>
+
+            <!-- Inner Iced Matcha Graphic (Custom SVG) -->
+            <div class="w-[50px] h-[75px] relative mt-1 z-20">
+                <svg viewBox="0 0 100 120" class="w-full h-full transform -rotate-12">
+                    <!-- Straw -->
+                    <line x1="65" y1="5" x2="50" y2="35" stroke="black" stroke-width="5" stroke-linecap="round" />
+                    <!-- Handle -->
+                    <path d="M 75 55 C 100 55, 100 85, 75 85" fill="none" stroke="black" stroke-width="5"
+                        stroke-linecap="round" />
+                    <!-- Jar Body Outline -->
+                    <path d="M 30 35 L 70 35 L 75 105 L 25 105 Z" fill="white" stroke="black" stroke-width="5"
+                        stroke-linejoin="round" />
+                    <!-- Green Liquid -->
+                    <path d="M 32 50 L 68 50 L 71 101 L 29 101 Z" fill="#8cc63f" />
+                    <!-- Jar Lid details -->
+                    <rect x="23" y="25" width="54" height="10" rx="3" fill="white" stroke="black" stroke-width="5" />
+                    <!-- Ice cubes detailing -->
+                    <rect x="40" y="65" width="12" height="12" fill="white" opacity="0.6" />
+                    <rect x="55" y="80" width="10" height="10" fill="white" opacity="0.6" />
+                </svg>
+            </div>
+
+        </div>
+
+        <!-- UPDATE: Functional Featured Product Carousel -->
+        <div class="relative w-full max-w-[1200px] mx-auto px-2 md:px-6 mt-16 md:mt-24 z-20 group">
+
+            <!-- Left Navigation Arrow (Floating) -->
+            <button id="latte-left"
+                class="absolute left-[-10px] md:left-[-24px] top-1/2 transform -translate-y-1/2 bg-white text-black rounded-full w-[48px] h-[48px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.3)] hover:scale-105 hover:bg-gray-50 transition-all z-40 border border-gray-400 cursor-pointer">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <!-- Right Navigation Arrow (Floating) -->
+            <button id="latte-right"
+                class="absolute right-[-10px] md:right-[-24px] top-1/2 transform -translate-y-1/2 bg-white text-black rounded-full w-[48px] h-[48px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.3)] hover:scale-105 hover:bg-gray-50 transition-all z-40 border border-gray-400 cursor-pointer">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+
+            <!-- The Scrollable Container -->
+            <div id="latte-carousel"
+                class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory scroll-smooth w-full rounded-[32px] shadow-2xl">
+
+                <!-- Card 1: Nice Chai -->
+                <div
+                    class="min-w-full w-full flex-shrink-0 snap-start bg-[#ffcd9e] p-8 md:p-16 flex flex-col md:flex-row items-center">
+                    <!-- Left Column: Product Images Composite -->
+                    <div class="w-full md:w-1/2 flex items-center justify-center relative min-h-[400px]">
+                        <!-- Subtle ground shadow -->
+                        <div class="absolute bottom-[30px] w-[80%] h-[20px] bg-black/10 blur-xl rounded-[100%] z-0">
+                        </div>
+
+                        <!-- Back Image: Pouch Placeholder -->
+                        <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                            class="absolute left-[10%] bottom-[40px] w-[260px] h-[360px] object-cover mix-blend-multiply drop-shadow-2xl z-10"
+                            style="filter: sepia(1) saturate(4) hue-rotate(345deg);" alt="Nice Chai Pouch" />
+
+                        <!-- Front Image: Latte Glass Placeholder -->
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                            class="absolute bottom-[10px] right-[10%] w-[220px] h-[260px] object-cover rounded-[15px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] z-20 border-[3px] border-white/50"
+                            alt="Creamy Chai Latte" />
+                    </div>
+
+                    <!-- Right Column: Text Content -->
+                    <div class="w-full md:w-1/2 flex flex-col items-start pl-0 md:pl-16 mt-12 md:mt-0 z-20">
+                        <!-- Orange NICE Sticker Badge -->
+                        <div
+                            class="inline-block bg-[#ff9945] text-black font-sans font-black uppercase text-[26px] tracking-tight px-3 py-0 border-[2.5px] border-black rounded-[6px] shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-3 mb-6">
+                            NICE
+                        </div>
+
+                        <!-- Heading -->
+                        <h3 class="font-serif text-[48px] md:text-[60px] leading-[1.05] text-[#222] mb-6">
+                            Chai<br>Latte Mix
+                        </h3>
+
+                        <!-- Description -->
+                        <p class="font-sans text-[16px] text-[#333] leading-[1.5] max-w-[380px] mb-8">
+                            Our Nice Chai is a not too sweet, not too spicy, powdered latte mix meant for making tea
+                            lattes simple.
+                        </p>
+
+                        <!-- Shop Button -->
+                        <a href="#"
+                            class="inline-block bg-white text-black font-sans text-[15px] font-medium px-10 py-3 rounded-full border border-black hover:bg-gray-50 transition-colors shadow-sm">
+                            Shop Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Nice Matcha -->
+                <div
+                    class="min-w-full w-full flex-shrink-0 snap-start bg-[#e3fba0] p-8 md:p-16 flex flex-col md:flex-row items-center">
+                    <!-- Left Column: Product Images Composite -->
+                    <div class="w-full md:w-1/2 flex items-center justify-center relative min-h-[400px]">
+                        <div class="absolute bottom-[30px] w-[80%] h-[20px] bg-black/10 blur-xl rounded-[100%] z-0">
+                        </div>
+
+                        <!-- Back Image: Pouch Placeholder (Tinted Green) -->
+                        <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                            class="absolute left-[10%] bottom-[40px] w-[260px] h-[360px] object-cover mix-blend-multiply drop-shadow-2xl z-10"
+                            style="filter: sepia(1) saturate(5) hue-rotate(50deg);" alt="Nice Matcha Pouch" />
+
+                        <!-- Front Image: Matcha Latte Placeholder -->
+                        <img src="https://images.unsplash.com/photo-1622240506921-042a4e71c172?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                            class="absolute bottom-[10px] right-[10%] w-[220px] h-[260px] object-cover rounded-[15px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] z-20 border-[3px] border-white/50"
+                            alt="Iced Matcha Latte" />
+                    </div>
+
+                    <!-- Right Column: Text Content -->
+                    <div class="w-full md:w-1/2 flex flex-col items-start pl-0 md:pl-16 mt-12 md:mt-0 z-20">
+                        <!-- Green NICE Sticker Badge -->
+                        <div
+                            class="inline-block bg-[#8cc63f] text-black font-sans font-black uppercase text-[26px] tracking-tight px-3 py-0 border-[2.5px] border-black rounded-[6px] shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-3 mb-6">
+                            NICE
+                        </div>
+
+                        <h3 class="font-serif text-[48px] md:text-[60px] leading-[1.05] text-[#222] mb-6">
+                            Matcha<br>Latte Mix
+                        </h3>
+
+                        <p class="font-sans text-[16px] text-[#333] leading-[1.5] max-w-[380px] mb-8">
+                            Our Nice Matcha is a sweetened, powdered mix meant to make iced or hot matcha lattes
+                            incredibly simple and delicious.
+                        </p>
+
+                        <a href="#"
+                            class="inline-block bg-white text-black font-sans text-[15px] font-medium px-10 py-3 rounded-full border border-black hover:bg-gray-50 transition-colors shadow-sm">
+                            Shop Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Golden Latte -->
+                <div
+                    class="min-w-full w-full flex-shrink-0 snap-start bg-[#ffd85f] p-8 md:p-16 flex flex-col md:flex-row items-center">
+                    <!-- Left Column: Product Images Composite -->
+                    <div class="w-full md:w-1/2 flex items-center justify-center relative min-h-[400px]">
+                        <div class="absolute bottom-[30px] w-[80%] h-[20px] bg-black/10 blur-xl rounded-[100%] z-0">
+                        </div>
+
+                        <!-- Back Image: Pouch Placeholder (Tinted Yellow) -->
+                        <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                            class="absolute left-[10%] bottom-[40px] w-[260px] h-[360px] object-cover mix-blend-multiply drop-shadow-2xl z-10"
+                            style="filter: sepia(1) saturate(5) hue-rotate(10deg);" alt="Golden Latte Pouch" />
+
+                        <!-- Front Image: Golden Latte Placeholder -->
+                        <img src="https://images.unsplash.com/photo-1582787399201-9452b41255e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                            class="absolute bottom-[10px] right-[10%] w-[220px] h-[260px] object-cover rounded-[15px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] z-20 border-[3px] border-white/50"
+                            alt="Golden Latte" />
+                    </div>
+
+                    <!-- Right Column: Text Content -->
+                    <div class="w-full md:w-1/2 flex flex-col items-start pl-0 md:pl-16 mt-12 md:mt-0 z-20">
+                        <!-- Yellow STICKER Badge -->
+                        <div
+                            class="inline-block bg-[#fcb316] text-black font-sans font-black uppercase text-[26px] tracking-tight px-3 py-0 border-[2.5px] border-black rounded-[6px] shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-3 mb-6">
+                            GOLDEN
+                        </div>
+
+                        <h3 class="font-serif text-[48px] md:text-[60px] leading-[1.05] text-[#222] mb-6">
+                            Turmeric<br>Latte Mix
+                        </h3>
+
+                        <p class="font-sans text-[16px] text-[#333] leading-[1.5] max-w-[380px] mb-8">
+                            A warming blend of turmeric and spices. Clean energy, rich flavor, and all the good stuff
+                            your body loves.
+                        </p>
+
+                        <a href="#"
+                            class="inline-block bg-white text-black font-sans text-[15px] font-medium px-10 py-3 rounded-full border border-black hover:bg-gray-50 transition-colors shadow-sm">
+                            Shop Now
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- NEW SECTION: Journal Intro -->
+    <section class="bg-creamBg w-full pt-24 pb-16 px-4 md:px-10 z-10 relative">
+        <div class="max-w-[1400px] mx-auto flex flex-col items-start lg:pl-[10%]">
+
+            <!-- Yellow Journal Sticker Badge -->
+            <div
+                class="inline-block bg-[#ffb800] text-black font-sans font-black uppercase text-[28px] md:text-[32px] tracking-tight px-3 border-[2.5px] border-black rounded-[5px] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 mb-8 ml-2">
+                JOURNAL
+            </div>
+
+            <!-- Headings -->
+            <h2
+                class="font-serif text-[36px] md:text-[50px] lg:text-[54px] leading-[1.15] text-[#222] tracking-tight max-w-[1000px]">
+                A community steeped in <span class="italic">curiosity</span>. Explore recipes, culture, and everyday tea
+                wisdom.
+            </h2>
+
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Journal Interactive Carousel -->
+    <section class="bg-creamBg w-full pb-32 relative px-4 md:px-10 z-10">
+        <div class="relative max-w-[1400px] mx-auto">
+
+            <!-- Right Navigation Arrow (Floating over the carousel) -->
+            <button id="journal-right"
+                class="absolute right-[-10px] md:right-[20px] top-[40%] transform -translate-y-1/2 bg-white text-black rounded-full w-[48px] h-[48px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform z-30 border border-gray-200 cursor-pointer">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+
+            <!-- The Scrollable Container -->
+            <div id="journal-carousel"
+                class="flex gap-4 overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-8 pt-4 scroll-smooth cursor-grab active:cursor-grabbing pl-2 lg:pl-[10%]">
+
+                <!-- Card 1: Recipe (London Fog) -->
+                <div
+                    class="min-w-[300px] w-[300px] flex-shrink-0 snap-start flex flex-col rounded-xl overflow-hidden border-[2.5px] border-navPurple group hover:-translate-y-1 transition-transform duration-300 shadow-sm">
+                    <!-- Top Image Area -->
+                    <div class="relative h-[280px] bg-navPurple flex items-center justify-center overflow-hidden">
+                        <!-- Tag -->
+                        <div
+                            class="absolute top-3 left-3 bg-white text-black text-[12px] font-bold tracking-widest px-2 py-1 uppercase rounded-sm border-[1.5px] border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-20">
+                            RECIPE</div>
+
+                        <!-- Inner Circle -->
+                        <div
+                            class="w-[250px] h-[250px] bg-[#bce3ff] rounded-full border-[2.5px] border-navPurple relative flex items-center justify-center">
+                            <!-- Custom SVG for Steaming Mug -->
+                            <svg viewBox="0 0 100 100" class="w-[120px] h-[120px] z-10 relative mt-4">
+                                <!-- Steam -->
+                                <path d="M 50 40 Q 60 30 50 20 Q 40 10 50 0" fill="none" stroke="black" stroke-width="4"
+                                    stroke-linecap="round" />
+                                <path d="M 65 35 Q 75 25 65 15 Q 55 5 65 -5" fill="none" stroke="black" stroke-width="3"
+                                    stroke-linecap="round" />
+                                <path d="M 35 45 Q 25 35 35 25" fill="none" stroke="black" stroke-width="3"
+                                    stroke-linecap="round" />
+                                <!-- Mug Body -->
+                                <path d="M 25 40 C 25 40, 25 80, 50 85 C 75 80, 75 40, 75 40 Z" fill="white"
+                                    stroke="black" stroke-width="4" stroke-linejoin="round" />
+                                <!-- Handle -->
+                                <path d="M 25 50 C 10 45, 10 75, 27 70" fill="none" stroke="black" stroke-width="4"
+                                    stroke-linecap="round" />
+                                <!-- Liquid Level -->
+                                <path d="M 27 45 Q 50 50 73 45" fill="none" stroke="black" stroke-width="3" />
+                                <!-- Mug Details (Dots) -->
+                                <circle cx="45" cy="80" r="1.5" fill="black" />
+                                <circle cx="55" cy="80" r="1.5" fill="black" />
+                                <circle cx="50" cy="78" r="1" fill="black" />
+                                <circle cx="35" cy="75" r="1" fill="black" />
+                                <circle cx="65" cy="75" r="1" fill="black" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Bottom Text Banner -->
+                    <div
+                        class="bg-[#c2dfff] border-t-[2.5px] border-navPurple p-4 h-[75px] flex items-center justify-center">
+                        <p
+                            class="font-mono text-[13px] font-bold text-navPurple tracking-tight uppercase text-center leading-tight">
+                            London Fog Earl Grey Latte</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Caffeine (Matcha Pouches) -->
+                <div
+                    class="min-w-[300px] w-[300px] flex-shrink-0 snap-start flex flex-col rounded-xl overflow-hidden border-[2.5px] border-[#95ceb0] group hover:-translate-y-1 transition-transform duration-300 shadow-sm">
+                    <!-- Top Image Area -->
+                    <div
+                        class="relative h-[280px] bg-[#dcf6c2] flex flex-col items-center justify-center overflow-hidden p-6">
+                        <div
+                            class="absolute top-3 left-3 bg-white text-black text-[12px] font-bold tracking-widest px-2 py-1 uppercase rounded-sm border-[1.5px] border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-20">
+                            CAFFEINE</div>
+                        <!-- Placeholder composition simulating the product photo -->
+                        <div class="relative w-full h-full mt-4 flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                                alt="Matcha"
+                                class="w-[50%] absolute right-[5%] top-[10%] object-contain mix-blend-multiply drop-shadow-xl"
+                                style="filter: sepia(1) saturate(5) hue-rotate(50deg);" />
+                            <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                                alt="Matcha"
+                                class="w-[55%] absolute left-[5%] bottom-[15%] object-contain mix-blend-multiply drop-shadow-2xl z-10"
+                                style="filter: sepia(1) saturate(5) hue-rotate(50deg);" />
+                        </div>
+                    </div>
+                    <!-- Bottom Text Banner -->
+                    <div
+                        class="bg-[#c2dfff] border-t-[2.5px] border-[#95ceb0] p-4 h-[75px] flex items-center justify-center">
+                        <p
+                            class="font-mono text-[13px] font-bold text-navPurple tracking-tight uppercase text-center leading-tight">
+                            Nice Matcha Drinks to Delight!</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Matcha ("Nice" Iced Latte) -->
+                <div
+                    class="min-w-[300px] w-[300px] flex-shrink-0 snap-start flex flex-col rounded-xl overflow-hidden border-[2.5px] border-[#95ceb0] group hover:-translate-y-1 transition-transform duration-300 shadow-sm">
+                    <div
+                        class="relative h-[280px] bg-[#dcf6c2] flex flex-col items-center justify-center overflow-hidden p-6">
+                        <div
+                            class="absolute top-3 left-3 bg-white text-black text-[12px] font-bold tracking-widest px-2 py-1 uppercase rounded-sm border-[1.5px] border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-20">
+                            MATCHA</div>
+
+                        <div class="relative w-full h-full flex items-center justify-center">
+                            <!-- Background Pouch -->
+                            <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                                alt="Matcha"
+                                class="w-[50%] absolute right-[10%] bottom-[15%] object-contain mix-blend-multiply drop-shadow-xl z-0"
+                                style="filter: sepia(1) saturate(5) hue-rotate(50deg);" />
+                            <!-- Foreground Drink Placeholder -->
+                            <img src="https://images.unsplash.com/photo-1622240506921-042a4e71c172?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                                alt="Iced Matcha"
+                                class="w-[45%] h-[60%] absolute left-[15%] bottom-[10%] object-cover rounded-xl shadow-2xl z-10 border-[3px] border-white/50" />
+                        </div>
+                    </div>
+                    <div
+                        class="bg-[#c2dfff] border-t-[2.5px] border-[#95ceb0] p-4 h-[75px] flex items-center justify-center">
+                        <p
+                            class="font-mono text-[13px] font-bold text-navPurple tracking-tight uppercase text-center leading-tight">
+                            "Nice" Iced Matcha Latte</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Matcha (Energy Balls) -->
+                <div
+                    class="min-w-[300px] w-[300px] flex-shrink-0 snap-start flex flex-col rounded-xl overflow-hidden border-[2.5px] border-navPurple group hover:-translate-y-1 transition-transform duration-300 shadow-sm">
+                    <div class="relative h-[280px] bg-navPurple flex items-center justify-center overflow-hidden">
+                        <div
+                            class="absolute top-3 left-3 bg-white text-black text-[12px] font-bold tracking-widest px-2 py-1 uppercase rounded-sm border-[1.5px] border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-20">
+                            MATCHA</div>
+
+                        <!-- Inner Circle -->
+                        <div
+                            class="w-[250px] h-[250px] bg-[#dcf6c2] rounded-full border-[2.5px] border-navPurple relative flex items-center justify-center">
+                            <!-- Custom SVG for Measuring Cup & Whisk -->
+                            <svg viewBox="0 0 100 100" class="w-[110px] h-[110px] z-10 relative">
+                                <!-- Bamboo Whisk Handle -->
+                                <rect x="58" y="5" width="6" height="40" fill="white" stroke="black" stroke-width="3"
+                                    rx="2" transform="rotate(10 61 25)" />
+                                <!-- Measuring Cup Body -->
+                                <path d="M 30 45 L 70 50 L 65 90 C 65 95, 35 95, 35 90 Z" fill="#9bd14f" stroke="black"
+                                    stroke-width="4" stroke-linejoin="round" />
+                                <!-- Whisk Prongs (Inside cup) -->
+                                <path d="M 50 45 Q 40 70 55 85 Q 70 70 60 45" fill="none" stroke="black"
+                                    stroke-width="2" />
+                                <path d="M 53 45 Q 48 70 55 80 Q 62 70 57 45" fill="none" stroke="black"
+                                    stroke-width="2" />
+                                <!-- Cup Spout -->
+                                <path d="M 30 45 L 20 40 L 32 55" fill="#9bd14f" stroke="black" stroke-width="4"
+                                    stroke-linejoin="round" />
+                                <!-- Cup Handle -->
+                                <path d="M 70 55 C 85 55, 85 80, 67 80" fill="none" stroke="black" stroke-width="4"
+                                    stroke-linecap="round" />
+                                <!-- Liquid Level Line -->
+                                <path d="M 32 60 Q 50 62 68 62" fill="none" stroke="black" stroke-width="2"
+                                    stroke-dasharray="2 2" />
+                                <!-- Dots Detail -->
+                                <circle cx="45" cy="80" r="1.5" fill="black" />
+                                <circle cx="55" cy="83" r="1" fill="black" />
+                                <circle cx="40" cy="75" r="1" fill="black" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-[#c2dfff] border-t-[2.5px] border-navPurple p-4 h-[75px] flex items-center justify-center">
+                        <p
+                            class="font-mono text-[13px] font-bold text-navPurple tracking-tight uppercase text-center leading-tight">
+                            Matcha Energy Balls</p>
+                    </div>
+                </div>
+
+                <!-- Card 5: Tea 101 -->
+                <div
+                    class="min-w-[300px] w-[300px] flex-shrink-0 snap-start flex flex-col rounded-xl overflow-hidden border-[2.5px] border-navPurple group hover:-translate-y-1 transition-transform duration-300 shadow-sm">
+                    <div class="relative h-[280px] bg-navPurple flex items-center justify-center overflow-hidden">
+                        <div
+                            class="absolute top-3 left-3 bg-white text-black text-[12px] font-bold tracking-widest px-2 py-1 uppercase rounded-sm border-[1.5px] border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-20">
+                            TEA 101</div>
+
+                        <div
+                            class="w-[250px] h-[250px] bg-[#f8f6f0] rounded-full border-[2.5px] border-navPurple relative flex items-center justify-center">
+                            <!-- Custom SVG for Tea Leaf -->
+                            <svg viewBox="0 0 100 100" class="w-[100px] h-[100px] z-10 relative">
+                                <path d="M 10 90 Q 50 80 80 20 Q 90 50 10 90 Z" fill="#78b13f" stroke="black"
+                                    stroke-width="4" stroke-linejoin="round" />
+                                <path d="M 10 90 Q 50 75 80 20" fill="none" stroke="black" stroke-width="4"
+                                    stroke-linecap="round" />
+                                <path d="M 40 70 L 45 55" fill="none" stroke="black" stroke-width="3"
+                                    stroke-linecap="round" />
+                                <path d="M 55 55 L 65 45" fill="none" stroke="black" stroke-width="3"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-[#c2dfff] border-t-[2.5px] border-navPurple p-4 h-[75px] flex items-center justify-center">
+                        <p
+                            class="font-mono text-[13px] font-bold text-navPurple tracking-tight uppercase text-center leading-tight">
+                            5 Reasons To Drink Tea</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Scroll Progress Lines -->
+            <div class="flex justify-center mt-6 gap-2">
+                <div class="w-12 h-[2px] bg-black"></div>
+                <div class="w-12 h-[2px] bg-gray-300"></div>
+                <div class="w-12 h-[2px] bg-gray-300"></div>
+            </div>
+
+            <!-- Explore Button -->
+            <div class="flex justify-center mt-12 mb-8">
+                <a href="#"
+                    class="inline-block bg-navPurple text-white font-sans text-[15px] font-medium px-12 py-3.5 rounded-full hover:bg-opacity-90 transition-colors shadow-lg">
+                    Explore The Tea Journal
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Great Tea In Good Company (Orange Tile Section) -->
+    <section
+        class="relative w-full h-[650px] md:h-[750px] overflow-hidden flex items-center border-t-[2.5px] border-black bg-[#ed6a22]">
+
+        <!-- Simulated Orange Tile Background using CSS Gradients -->
+        <div class="absolute inset-0 z-0 opacity-60"
+            style="background-image: linear-gradient(white 1.5px, transparent 1.5px), linear-gradient(90deg, white 1.5px, transparent 1.5px); background-size: 48px 48px; background-position: center center;">
+        </div>
+
+        <!-- Right Side Composition (Mimicking the product photo setup) -->
+        <div class="absolute right-0 top-0 w-[65%] h-full z-0 pointer-events-none hidden md:block">
+            <!-- Background shadowing/vignette for depth -->
+            <div class="absolute inset-0 bg-gradient-to-l from-black/20 to-transparent mix-blend-multiply"></div>
+
+            <!-- Turmeric Pouch Placeholder -->
+            <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                class="absolute left-[5%] bottom-[10%] w-[320px] h-[450px] object-cover rounded-md shadow-2xl transform -rotate-2"
+                style="filter: sepia(1) saturate(5) hue-rotate(15deg) brightness(1.1);" alt="Turmeric Pouch" />
+
+            <!-- Tea Box Placeholder -->
+            <img src="https://images.unsplash.com/photo-1596465431607-bbfa7c9082bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                class="absolute left-[35%] bottom-[5%] w-[260px] h-[320px] object-cover rounded-sm shadow-[15px_15px_25px_rgba(0,0,0,0.3)]"
+                alt="Tea Box" />
+
+            <!-- Glass Mug Placeholder -->
+            <img src="https://images.unsplash.com/photo-1576092762791-dd9e2220cad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                class="absolute right-[5%] bottom-[12%] w-[350px] h-[280px] object-cover rounded-[30px] shadow-2xl border-4 border-white/20"
+                style="filter: sepia(0.5) hue-rotate(330deg) saturate(1.5);" alt="Tea Glass" />
+
+            <!-- Turmeric Root (Bottom Right) -->
+            <img src="https://images.unsplash.com/photo-1615486171448-4fd37d99596c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                class="absolute right-[2%] bottom-[2%] w-[150px] h-[100px] object-cover rounded-full mix-blend-multiply drop-shadow-2xl"
+                alt="Turmeric Root" />
+        </div>
+
+        <!-- Content Container -->
+        <div class="relative z-10 max-w-[1400px] mx-auto w-full px-4 md:px-10 h-full flex items-center">
+
+            <!-- Orange Card (Matches the exact layout and color) -->
+            <div
+                class="bg-[#ed6a22] border-[2px] border-black rounded-[24px] p-10 md:p-14 flex flex-col justify-between h-[90%] md:h-[650px] w-full sm:w-[400px] shadow-[0_15px_40px_rgba(0,0,0,0.25)] relative overflow-hidden group">
+
+                <!-- Inner subtle highlight -->
+                <div
+                    class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+
+                <h2
+                    class="font-serif text-[48px] md:text-[58px] lg:text-[64px] leading-[1.05] text-white tracking-tight mt-2 relative z-10 drop-shadow-sm">
+                    Great Tea.<br>In Good<br>Company.
+                </h2>
+
+                <div class="mt-auto relative z-10">
+                    <p class="font-sans text-[16px] md:text-[17px] text-white leading-[1.4] mb-10 pr-4">
+                        Discover the people, places, and purpose behind every blend.
+                    </p>
+
+                    <a href="#"
+                        class="inline-block bg-white text-black font-sans text-[15px] font-medium px-12 py-3.5 rounded-full border-[1.5px] border-black hover:bg-gray-100 transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] text-center min-w-[200px]">
+                        About us
                     </a>
                 </div>
             </div>
 
-            <div class="nav2 navs">
-                <img src="./Assets/logo.png" alt="logo">
-                <!-- ↑ above fold, NO lazy -->
-            </div>
-
-            <div class="nav3 navs">
-                <div class="nav-links">
-                    <a href="#">my account</a>
-                    <a href="#">cafe & wholesale partners</a>
-                    <a href="#">tea journal</a>
-                    <div class="nav3-icons flex">
-                        <i class="ri-shopping-bag-line text-3xl"></i>
-                        <p
-                            class="bg-[#FFB500] text-black rounded-full w-4 h-4 flex items-center justify-center text-xs">
-                            0</p>
-                    </div>
-                </div>
-            </div>
-
-
-        </nav>
-
-        <div class="section1-content">
-            <h1 class="text-[clamp(2rem,5vw,5rem)]">
-                Cere- <br>
-                Memorial <br>
-                Day Sale
-            </h1>
-            <p class="text-[1.2rem] font-bold">Refresh your summer ritual with organic ceremonial matcha. <br> Enjoy 20%
-                off ceremonial matcha tins this Memorial Day <br> weekend.</p>
-            <h2 class="text-[1.6rem]">Use code: <b>CERE-MEMORIAL-DAY</b> at checkout and save!</h2>
-            <p class="text-[1.2rem] font-bold italic">Discount valid from Friday, May 22 through Monday, May 25</p>
-            <button class="bg-[rgb(21,42,88)] text-white shop-btn self-start">Shop Now</button>
         </div>
     </section>
 
-    <section class="section2">
-        <h1>A <i>great</i> cup starts with a careful <br> pluck - the top two leaves and a bud.</h1>
-        <button class="best">BEST SELLERS</button>
-        <div class="cards">
-            <button class="left"><i class="ri-arrow-left-line"></i></button>
-            <button class="right"><i class="ri-arrow-right-line"></i></button>
+    <!-- NEW SECTION: Steep With Us (Newsletter & Socials) -->
+    <section class="w-full bg-[#c2dfff] py-20 px-4 md:px-10 relative z-10">
+        <div class="max-w-[1300px] mx-auto w-full lg:pl-[5%]">
 
-            <div class="card1 card">
-                <div class="p1">
-                    <div class="card-sub">
-                        <button>TEA SACHETS</button>
-                        <p><i class="ri-star-s-fill"></i>4.71 (84)</p>
-                    </div>
-                    <img src="./Assets/pack1.png" loading="lazy" alt="Organic Tropical Green Tea">
-                    <div class="card-sub2"><i class="ri-add-line"></i>Add</div>
-                </div>
-                <div class="p2">
-                    <h2>Organic Tropical Green Tea</h2>
-                    <h3>from $11.95</h3>
-                    <p>Our Organic Tropical Green is a fruity and fun take on a classic green tea</p>
-                </div>
-            </div>
-
-            <div class="card2 card">
-                <div class="p1">
-                    <div class="card-sub">
-                        <button>Gifts & Samplers</button>
-                        <p><i class="ri-star-s-fill"></i>5 ( 2 )</p>
-                    </div>
-                    <img src="./Assets/pack2.png" loading="lazy" alt="Herbal Tea Trio">
-                    <div class="card-sub2"><i class="ri-add-line"></i>Add</div>
-                </div>
-                <div class="p2">
-                    <h2>Herbal Tea Trio</h2>
-                    <h3>$33.30</h3>
-                    <p>A trio of soothing herbal teas</p>
-                </div>
-            </div>
-
-            <div class="card3 card">
-                <div class="p1">
-                    <div class="card-sub">
-                        <button>NAKED SACHETS</button>
-                        <p><i class="ri-star-s-fill"></i>5 ( 11 )</p>
-                    </div>
-                    <img src="./Assets/pack3.png" loading="lazy" alt="Organic Peppermint">
-                    <div class="card-sub2"><i class="ri-add-line"></i>Add</div>
-                </div>
-                <div class="p2">
-                    <h2>Organic Peppermint 50 Naked Tea Sachets</h2>
-                    <h3>$21.95</h3>
-                    <p>Our organic Peppermint tea is made from peppermint grown in Washington State.</p>
-                </div>
-            </div>
-
-            <div class="card4 card">
-                <div class="p1">
-                    <div class="card-sub">
-                        <button>GIFTS & SAMPLERS</button>
-                        <p><i class="ri-star-s-fill"></i>4.85 ( 41 )</p>
-                    </div>
-                    <img src="./Assets/pack4.png" loading="lazy" alt="Classic Bamboo Tea Chest">
-                    <div class="card-sub2"><i class="ri-add-line"></i>Add</div>
-                </div>
-                <div class="p2">
-                    <h2>Classic Bamboo Tea Chest</h2>
-                    <h3>$42.95</h3>
-                    <p>This 6-slot bamboo box offers a sampling of eight sachets each of six of our best selling teas
-                    </p>
-                </div>
-            </div>
-
-            <div class="card5 card">
-                <div class="p1">
-                    <div class="card-sub">
-                        <button>LATTE MIX</button>
-                        <p><i class="ri-star-s-fill"></i>4.41 ( 22 )</p>
-                    </div>
-                    <img src="./Assets/pack5.png" loading="lazy" alt="Nice Matcha Tea Latte Mix">
-                    <div class="card-sub2"><i class="ri-add-line"></i>Add</div>
-                </div>
-                <div class="p2">
-                    <h2>Nice Matcha Tea Latte Mix</h2>
-                    <h3>From $12.95</h3>
-                    <p>Our Nice Matcha is a lightly sweetened powdered mix meant for making tea lattes simple</p>
-                </div>
-            </div>
-
-            <div class="card6 card">
-                <div class="p1">
-                    <div class="card-sub">
-                        <button>LATTE MIX</button>
-                        <p><i class="ri-star-s-fill"></i>4.24 ( 17 )</p>
-                    </div>
-                    <img src="./Assets/pack6.png" loading="lazy" alt="Nice Chai Tea Latte Mix">
-                    <div class="card-sub2"><i class="ri-add-line"></i>Add</div>
-                </div>
-                <div class="p2">
-                    <h2>Nice Chai Tea Latte Mix</h2>
-                    <h3>From $12.95</h3>
-                    <p>Our Nice Chai is a not too sweet, not too spicy, powdered latte mix meant for making tea lattes
-                        simple.</p>
-                </div>
-            </div>
-
-            <div class="card7 card">
-                <div class="p1">
-                    <div class="card-sub">
-                        <button>TEA SACHETS</button>
-                        <p><i class="ri-star-s-fill"></i>4.79 ( 108 )</p>
-                    </div>
-                    <img src="./Assets/pack7.png" loading="lazy" alt="Organic Mountain High Chai Tea">
-                    <div class="card-sub2"><i class="ri-add-line"></i>Add</div>
-                </div>
-                <div class="p2">
-                    <h2>Organic Mountain High Chai Tea</h2>
-                    <h3>From $11.95</h3>
-                    <p>An ode to our Rocky Mountain roots, our organic Mountain High Chai takes your tastebuds down a
-                        spice-filled ski slope</p>
-                </div>
-            </div>
-
-            <div class="card8 card">
-                <div class="p1">
-                    <div class="card-sub">
-                        <button>NAKED SACHETS</button>
-                        <p><i class="ri-star-s-fill"></i>4.56 ( 41 )</p>
-                    </div>
-                    <img src="./Assets/pack8.png" loading="lazy" alt="Organic Earl Grey">
-                    <div class="card-sub2"><i class="ri-add-line"></i>Add</div>
-                </div>
-                <div class="p2">
-                    <h2>Organic Earl Grey-50 Naked Tea Sachets</h2>
-                    <h3>$21.95</h3>
-                    <p>Earl Grey's distinctive aroma comes from bergamot - a citrus fruit about the size of an orange
-                        but yellow-green and slightly pear-shaped</p>
-                </div>
-            </div>
-
-            <div class="card9 card">
-                <div class="p1">
-                    <div class="card-sub">
-                        <button>NAKED SACHETS</button>
-                        <p><i class="ri-star-s-fill"></i>5 ( 5 )</p>
-                    </div>
-                    <img src="./Assets/pack9.png" loading="lazy" alt="Alpine Berry Tea Sachets">
-                    <div class="card-sub2"><i class="ri-add-line"></i>Add</div>
-                </div>
-                <div class="p2">
-                    <h2>Alpine Berry -15 Naked Tea Sachets</h2>
-                    <h3>From $8.95</h3>
-                    <p>Our signature herbal blend, Alpine Berry is a caffeine-free, naturally sweet and tart tea.</p>
-                </div>
-            </div>
-        </div>
-        <button class="tea-btn">Explore All Teas</button>
-    </section>
-
-    <section class="section3">
-        <div class="sec3-data">
-            <button class="discover-btn">DISCOVER</button>
-            <h1>Let's find a cup that fits the <i>moment.</i> <br> What are you searching for?</h1>
-            <input class="search-box" type="text" placeholder="Type Name...">
-        </div>
-        <div class="sec3-data2">
-            <p>Or explore by vibe...</p>
-            <div class="vibe-tags">
-                <button>A Sweet Treat</button>
-                <button>Evening Unwind</button>
-                <button>Focused & Clear</button>
-                <button>Caffeine!</button>
-                <button>Caffeine-Free</button>
-                <button>Ceremony-Worthy</button>
-                <button>Whole Leaf</button>
-                <button>Over Ice</button>
-                <button>Lattes</button>
-                <button>Black Tea</button>
-                <button>Green Tea</button>
-                <button>Herbal Tea</button>
-                <button>Organic</button>
-                <button>Barista Favorite</button>
-                <button>Calm & Cozy</button>
-                <button>Fruit Forward</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="section4">
-        <button class="sec4-logo">OUR ORIGINS</button>
-        <h1>BORN IN <br> COLORADO</h1>
-        <h2>
-            Our founder, Richard, started Two Leaves and a Bud in pursuit <br>
-            of a truly great cup. Two decades later, that same care and <br>
-            curiosity guide everything we make.
-        </h2>
-        <div class="sec4-content">
-            <div class="sec4-cont">
-                <img src="./Assets/moving-logo3.svg" loading="lazy" width="90" alt="Quality icon">
-                <p>Quality, Without <br> Pretense</p>
-            </div>
-            <div class="sec4-cont">
-                <img src="./Assets/moving_logo2.svg" loading="lazy" width="90" alt="Care icon">
-                <p>Care for People & <br> Planet</p>
-            </div>
-            <div class="sec4-cont">
-                <img src="./Assets/moving_logo.svg" loading="lazy" width="90" alt="Sourcing icon">
-                <p>Transparent Sourcing</p>
-            </div>
-        </div>
-        <button class="story-btn">Our Story</button>
-    </section>
-
-    <section class="section5">
-        <button class="sec5-logo">REVIEWS</button>
-        <h5 class="sec5-title">Loved by tea people <i>everywhere.</i><br> Here's what they're saying.</h5>
-        <div class="sec5-cards">
-
-            <div class="sec5-card c1">
-                <h2>"The right amount <br> of spice."</h2>
-                <p>Angelina R.</p>
-                <div class="c1-subdiv mini-div">
-                    <img src="./Assets/pack7.png" loading="lazy" width="80" alt="Mountain High Chai">
-                    <hr class="v-line">
-                    <p>Organic <br> Mountain <br> High Chai</p>
-                    <button class="sec5-shopbtn">Shop</button>
-                </div>
-            </div>
-
-            <div class="sec5-card c2">
-                <h2>"This drink is incredibly refreshing, especially when served over ice. It's light, crisp, and
-                    instantly cooling, making it perfect for a quick refresh any time of day."</h2>
-                <p>Daniel K.</p>
-                <div class="c2-subdiv mini-div">
-                    <img src="./Assets/pack1.png" loading="lazy" width="50" alt="Tropical Green Tea">
-                    <hr class="v-line">
-                    <p>Organic <br>Tropical <br>Green Tea</p>
-                    <button class="sec5-shopbtn">Shop</button>
-                </div>
-            </div>
-
-            <div class="sec5-card c3">
-                <h2>"One sip and you can feel the difference—clean energy, rich flavor, and all the good stuff your body
-                    loves. Literally liquid GOLD."</h2>
-                <p>Sarah T.</p>
-                <div class="c3-subdiv mini-div">
-                    <img src="./Assets/pack3.png" loading="lazy" width="80" alt="Organic Peppermint Tea">
-                    <hr class="v-line">
-                    <p>Organic <br> Peppermint <br> Tea</p>
-                    <button class="sec5-shopbtn">Shop</button>
-                </div>
-            </div>
-
-            <div class="sec5-card c4">
-                <h2>"Soo tasty and <br> energizing."</h2>
-                <p>Gracie M.</p>
-                <div class="c4-subdiv mini-div">
-                    <img src="./Assets/pack5.png" loading="lazy" width="80" alt="Nice Matcha Latte Mix">
-                    <hr class="v-line">
-                    <p>Nice Matcha <br> Tea Latte <br> Mix</p>
-                    <button class="sec5-shopbtn">Shop</button>
-                </div>
-            </div>
-
-            <div class="sec5-card c5">
-                <h2>"My favorite tea <br> ever."</h2>
-                <p>Emily R.</p>
-                <div class="c5-subdiv mini-div">
-                    <img src="./Assets/pack4.png" loading="lazy" width="80" alt="Classic Bamboo Tea Chest">
-                    <hr class="v-line">
-                    <p>Classic <br> Bamboo Tea <br> Chest</p>
-                    <button class="sec5-shopbtn">Shop</button>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="section6">
-        <div class="sec6-div">
-            <img src="./Assets/matcha.png" loading="lazy" width="50%" alt="Matcha preparation">
-            <div class="sec6-div2">
-                <h1 class="sec6-head">Our Cafe & <br> Wholesale Partners</h1>
-                <p>From local cafés to national chains, our teas <br> power thousands of baristas every day.</p>
-                <button>Learn More</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="section7">
-        <img src="./Assets/moving-logo-4.svg" loading="lazy" class="moving4-svg" width="150" alt="">
-        <button class="latte-btn">OUR LATTES</button>
-        <h1>Barista Blends for Every Mood</h1>
-        <p class="text-white text-[1.4rem] font-bold">(No training required)</p>
-        <div class="sec7-card1">
-            <img src="./Assets/Nice_Chai.webp" loading="lazy" class="sec7-img" alt="Nice Chai Latte">
-            <div class="sec7-cardContent">
-                <button class="sec7-cardbtn">Nice</button>
-                <h2>Chai <br> Latte mix</h2>
-                <h5>
-                    Our Nice Chai is a not too sweet, not too spicy, <br>
-                    powdered latte mix meant for making tea lattes <br>
-                    simple.
-                </h5>
-                <button class="sec7-shopBtn">Shop Now</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="section8">
-        <button class="journal-btn">JOURNAL</button>
-        <h1 class="sec8-title">A community steeped in curiosity. Explore <br> recipes, culture, and everyday tea wisdom.
-        </h1>
-        <div class="sec8-cards">
-            <div class="sec8-card sec8-card1">
-                <img src="./Assets/e13.svg" loading="lazy" alt="Matcha Energy Balls">
-                <div class="sec8-btn">MATCHA</div>
-                <div class="sec8-subdiv">
-                    <p>MATCHA ENERGY BALLS</p>
-                </div>
-            </div>
-            <div class="sec8-card sec8-card2">
-                <img src="./Assets/e12.svg" loading="lazy" alt="Grinch Latte">
-                <div class="sec8-btn">MATCHA</div>
-                <div class="sec8-subdiv">
-                    <p>GRINCH LATTE</p>
-                </div>
-            </div>
-            <div class="sec8-card sec8-card3">
-                <img src="./Assets/e14.svg" loading="lazy" alt="Matcha Swiss Roll Cake">
-                <div class="sec8-btn">MATCHA</div>
-                <div class="sec8-subdiv">
-                    <p>MATCHA SWISS ROLL CAKE</p>
-                </div>
-            </div>
-            <div class="sec8-card sec8-card4">
-                <img src="./Assets/e12.svg" loading="lazy" alt="Matcha Smoothie">
-                <div class="sec8-btn">MATCHA</div>
-                <div class="sec8-subdiv">
-                    <p>MATCHA, CINNAMON AND HONEY SMOOTHIE</p>
-                </div>
-            </div>
-        </div>
-        <div class="tea-parent">
-            <button class="tea-journal">Explore the Tea Journal</button>
-        </div>
-    </section>
-
-    <section class="section9">
-        <div class="sec9-div">
-            <h1>Great Tea. <br>In Good <br> Company.</h1>
-            <div class="sec9-subcont">
-                <p>Discover the people, places and <br> purpose behind every blend.</p>
-                <button>About Us</button>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-contents">
-            <h3 class="footer-title">STEEP WITH US</h3>
-            <p class="footer-para">
-                Get news stories, brewing tips, and special offers <br>
-                straight to your inbox.
+            <!-- Headings -->
+            <h2 class="font-sans text-[32px] md:text-[38px] font-black uppercase tracking-tighter text-[#222] mb-4 drop-shadow-sm"
+                style="transform: scaleY(1.15); transform-origin: left;">
+                STEEP WITH US
+            </h2>
+            <p
+                class="font-serif text-[24px] md:text-[32px] text-[#444] mb-12 max-w-[800px] leading-[1.2] tracking-tight">
+                Get news stories, brewing tips, and special offers straight to your inbox.
             </p>
-            <div class="footer-contSubdiv">
-                <form class="subscribe">
-                    <input type="email" class="input-tag" placeholder="name@gmail.com" required>
-                    <button class="footer-btn" type="submit">Submit</button>
+
+            <!-- Form and Socials Row -->
+            <div
+                class="flex flex-col xl:flex-row items-start xl:items-center justify-between w-full gap-8 xl:gap-4 pr-0 xl:pr-[10%]">
+
+                <!-- Email Form -->
+                <form class="flex flex-col sm:flex-row w-full xl:w-auto gap-4" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="name@email.com"
+                        class="w-full sm:w-[380px] px-6 py-4 rounded-[14px] border-[1.5px] border-transparent focus:border-black focus:outline-none font-sans text-[16px] text-[#333] placeholder-gray-400 shadow-sm transition-colors"
+                        required />
+                    <button type="submit"
+                        class="bg-navPurple text-white px-12 py-4 rounded-full font-sans text-[16px] font-medium hover:bg-opacity-90 transition-colors shadow-sm whitespace-nowrap">
+                        Submit
+                    </button>
                 </form>
-                <div class="footer-icons">
-                    <i class="ri-facebook-circle-fill"></i>
-                    <i class="ri-instagram-fill"></i>
-                    <i class="ri-linkedin-box-fill"></i>
+
+                <!-- Social Icons -->
+                <div class="flex gap-4 ml-0 xl:ml-auto">
+                    <!-- Facebook -->
+                    <a href="#"
+                        class="w-[50px] h-[50px] rounded-full border-[1.5px] border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors text-black">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="#"
+                        class="w-[50px] h-[50px] rounded-full border-[1.5px] border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors text-black">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="#"
+                        class="w-[50px] h-[50px] rounded-full border-[1.5px] border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors text-black">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
                 </div>
+
             </div>
         </div>
+    </section>
 
-        <div class="footer-main">
-            <div class="footer-blocks footer-b1">
-                <h3>Tea Varieties</h3>
-                <ul>
-                    <li>Whole Leaf Tea Sachets</li>
-                    <li>Pure Matcha</li>
-                    <li>Tea Lattes</li>
-                    <li>Iced Tea</li>
-                </ul>
+    <!-- NEW SECTION: Dark Purple Footer Links Box -->
+    <section class="w-full bg-[#c2dfff] px-4 md:px-10 pb-10 md:pb-20 relative z-10">
+        <div class="max-w-[1400px] mx-auto bg-navPurple rounded-[16px] p-10 md:p-16">
+
+            <!-- Top Row of Links -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 mb-12 md:mb-16">
+
+                <!-- Column 1 -->
+                <div>
+                    <h4 class="font-serif text-[20px] md:text-[22px] text-white mb-5 tracking-wide">Tea Varieties</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Whole
+                                Leaf Tea Sachets</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Pure
+                                Matcha</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Tea
+                                Lattes</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Iced
+                                Tea</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="font-serif text-[20px] md:text-[22px] text-white mb-5 tracking-wide">Collections</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Matcha</a>
+                        </li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Chai</a>
+                        </li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Organic
+                                Tea</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Naked
+                                Tea Sachets</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Black
+                                Tea</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Green
+                                Tea</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Herbal
+                                Tea</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Caffeine-Free</a>
+                        </li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Gift &
+                                Samplers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="font-serif text-[20px] md:text-[22px] text-white mb-5 tracking-wide">Lattes</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Nice
+                                Matcha</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Barista
+                                Matcha</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Nice
+                                Chai</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Barista
+                                Chai</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Two
+                                Roots Golden Latte</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="font-serif text-[20px] md:text-[22px] text-white mb-5 tracking-wide">Learn</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Our
+                                Story</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Our
+                                Spirit</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">FAQ</a>
+                        </li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 5 -->
+                <div>
+                    <h4 class="font-serif text-[20px] md:text-[22px] text-white mb-5 tracking-wide">Tea Journal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">All
+                                Articles</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Tea
+                                101</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Recipes</a>
+                        </li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Sustainability</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            <div class="footer-blocks footer-b2">
-                <h3>Collections</h3>
-                <ul>
-                    <li>Matcha</li>
-                    <li>Chai</li>
-                    <li>Organic Tea</li>
-                    <li>Naked Tea Sachets</li>
-                    <li>Black Tea</li>
-                    <li>Green Tea</li>
-                    <li>Herbal Tea</li>
-                    <li>Caffeine-Free</li>
-                    <li>Gift & Samplers</li>
-                </ul>
+
+            <!-- Bottom Row of Links -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
+
+                <!-- Column 1 (Aligns under Tea Varieties) -->
+                <div>
+                    <h4 class="font-serif text-[20px] md:text-[22px] text-white mb-5 tracking-wide">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Contact</a>
+                        </li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">My
+                                Account</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Loyal-Tea</a>
+                        </li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Shipping
+                                & Returns</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Privacy
+                                Policy</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Terms &
+                                Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 (Aligns under Collections) -->
+                <div class="lg:col-span-4">
+                    <h4 class="font-serif text-[20px] md:text-[22px] text-white mb-5 tracking-wide">Cafe & Wholesale
+                        Partners</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Cafe &
+                                Wholesale Partners</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Wholesale
+                                Login</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Product
+                                and Media Files</a></li>
+                        <li><a href="#"
+                                class="font-sans text-[15px] text-[#b4aed2] hover:text-white transition-colors">Displays
+                                & Starter Kits</a></li>
+                    </ul>
+                </div>
+
             </div>
-            <div class="footer-blocks footer-b3">
-                <h3>Lattes</h3>
-                <ul>
-                    <li>Nice Matcha</li>
-                    <li>Barista Matcha</li>
-                    <li>Nice Chai</li>
-                    <li>Barista Chai</li>
-                    <li>Two Roots Golden Latte</li>
-                </ul>
-            </div>
-            <div class="footer-blocks footer-b4">
-                <h3>Learn</h3>
-                <ul>
-                    <li>Our Story</li>
-                    <li>Our Spirit</li>
-                    <li>FAQ</li>
-                    <li>Reviews</li>
-                </ul>
-            </div>
-            <div class="footer-blocks footer-b5">
-                <h3>Tea Journal</h3>
-                <ul>
-                    <li>All Articles</li>
-                    <li>Tea 101</li>
-                    <li>Recipes</li>
-                    <li>Sustainability</li>
-                </ul>
-            </div>
-            <div class="footer-blocks footer-b6">
-                <h3>Support</h3>
-                <ul>
-                    <li>Contact</li>
-                    <li>My Account</li>
-                    <li>Loyal-Tea</li>
-                    <li>Shipping & Returns</li>
-                    <li>Privacy Policy</li>
-                    <li>Terms & Conditions</li>
-                </ul>
-            </div>
-            <div class="footer-blocks footer-b7">
-                <h3>Cafe & Wholesale Partners</h3>
-                <ul>
-                    <li>Cafe & Wholesale Partners</li>
-                    <li>Wholesale Login</li>
-                    <li>Product and Media Files</li>
-                    <li>Displays & Starter Kits</li>
-                </ul>
-            </div>
+
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Illustrated Landscape Footer -->
+    <section class="w-full bg-[#c2dfff] relative z-0 pt-20 md:pt-32 pb-4 overflow-hidden flex flex-col items-center">
+
+        <!-- Center Logo Typography -->
+        <div class="relative z-20 text-center pointer-events-none drop-shadow-sm mb-[-60px] md:mb-[-120px]">
+            <h1
+                class="font-serif text-[50px] md:text-[85px] leading-[0.9] tracking-tight text-[#1a1a1a] flex flex-col items-center justify-center">
+                <span class="mr-6 md:mr-10">two leaves</span>
+                <span>and a bud</span>
+            </h1>
         </div>
 
-        <div class="footer-img">
-            <img src="./Assets/logo.png" loading="lazy" alt="Two Leaves and a Bud">
-        </div>
-        <p class="footer-parag">© Two leaves and a Bud 2026 <br> Site by Manufactur</p>
-    </footer>
+        <!-- Custom SVG Landscape Illustration -->
+        <!-- Handcrafted to exactly match the halftone mountains, pine trees, and hidden face -->
+        <div class="w-full min-w-[1000px] max-w-[1920px] relative z-10 pointer-events-none">
+            <svg width="100%" height="auto" viewBox="0 0 1440 500" fill="none" xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMax slice">
+                <defs>
+                    <!-- Halftone Dot Pattern for Shading -->
+                    <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse"
+                        patternTransform="rotate(25)">
+                        <circle cx="2" cy="2" r="1.5" fill="#1a1a1a" />
+                    </pattern>
 
-    <script src="script.js" async defer></script>
+                    <!-- Reusable Pine Tree Graphic -->
+                    <g id="pine-tree">
+                        <path
+                            d="M 50 250 C 40 250, 30 240, 35 220 C 20 220, 10 200, 25 180 C 15 170, 20 140, 35 130 C 30 110, 45 80, 50 60 C 55 80, 70 110, 65 130 C 80 140, 85 170, 75 180 C 90 200, 80 220, 65 220 C 70 240, 60 250, 50 250 Z"
+                            fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round" />
+                        <rect x="47" y="245" width="6" height="25" fill="#1a1a1a" />
+                    </g>
+                </defs>
+
+                <!-- Background Mountain Lines -->
+                <path d="M -50 250 L 150 150 L 350 300 L 550 180 L 750 350 L 950 120 L 1200 280 L 1500 150"
+                    stroke="#1a1a1a" stroke-width="2" fill="none" />
+
+                <!-- Shading for Left Mountains -->
+                <path d="M 150 150 L 220 200 L 250 280 L 120 320 Z" fill="url(#halftone)" />
+                <path d="M 550 180 L 620 230 L 650 300 L 520 330 Z" fill="url(#halftone)" />
+
+                <!-- Right Mountain (With the Face) -->
+                <!-- Peak and Outline -->
+                <path d="M 600 400 L 750 250 L 850 280 L 950 120 L 1080 200 L 1150 140 L 1500 350" stroke="#1a1a1a"
+                    stroke-width="2.5" fill="none" />
+                <!-- Halftone Shadow -->
+                <path d="M 950 120 L 1050 180 L 1080 250 L 980 320 Z" fill="url(#halftone)" />
+                <path d="M 1150 140 L 1250 200 L 1300 300 L 1120 330 Z" fill="url(#halftone)" />
+
+                <!-- The Hidden Face with Sunglasses -->
+                <g transform="translate(940, 160)">
+                    <!-- Smile -->
+                    <path d="M 0 10 C 3 15, 8 15, 11 10" stroke="#1a1a1a" stroke-width="1.5" fill="none"
+                        stroke-linecap="round" />
+                    <!-- Left Lens -->
+                    <path d="M -2 0 C 1 0, 4 0, 5 3 C 3 7, 0 7, -2 3 Z" fill="#1a1a1a" />
+                    <!-- Right Lens -->
+                    <path d="M 6 0 C 9 0, 12 0, 13 3 C 11 7, 8 7, 6 3 Z" fill="#1a1a1a" />
+                    <!-- Bridge -->
+                    <line x1="4" y1="1" x2="7" y2="1" stroke="#1a1a1a" stroke-width="1.5" />
+                </g>
+
+                <!-- Foreground Rolling Hills/Snow -->
+                <path d="M -50 420 Q 250 500 650 440 T 1500 450 L 1500 550 L -50 550 Z" fill="#c2dfff" stroke="#1a1a1a"
+                    stroke-width="2.5" />
+                <path d="M -50 380 Q 200 460 550 420 T 1100 450 T 1500 400" fill="none" stroke="#1a1a1a"
+                    stroke-width="1.5" />
+
+                <!-- Floating Cloud -->
+                <path
+                    d="M 350 230 C 350 220, 365 210, 390 210 C 400 200, 430 200, 440 210 C 470 210, 480 230, 460 240 C 470 250, 450 260, 430 260 L 370 260 C 350 260, 340 240, 350 230 Z"
+                    fill="#c2dfff" stroke="#1a1a1a" stroke-width="2" />
+
+                <!-- Pine Trees (Left Side) -->
+                <use href="#pine-tree" x="80" y="180" transform="scale(0.8)" />
+                <use href="#pine-tree" x="140" y="130" transform="scale(1.1)" />
+                <use href="#pine-tree" x="220" y="210" transform="scale(0.9)" />
+                <use href="#pine-tree" x="350" y="280" transform="scale(0.65)" />
+
+                <!-- Pine Trees (Right Side) -->
+                <use href="#pine-tree" x="1100" y="160" transform="scale(0.95)" />
+                <use href="#pine-tree" x="1180" y="120" transform="scale(1.15)" />
+                <use href="#pine-tree" x="1270" y="220" transform="scale(0.85)" />
+            </svg>
+        </div>
+
+        <!-- Copyright Text Footer -->
+        <div class="absolute bottom-6 w-full flex flex-col items-center justify-center z-30">
+            <p class="font-mono text-[9px] md:text-[11px] font-bold text-[#1a1a1a] tracking-[0.2em] uppercase mb-1">
+                © Two Leaves and a Bud 2026
+            </p>
+            <p class="font-mono text-[9px] md:text-[11px] font-bold text-[#1a1a1a] tracking-[0.2em] uppercase">
+                Site by Manufactur
+            </p>
+        </div>
+
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Cart Logic ---
+            const addButtons = document.querySelectorAll('.add-btn');
+            const cartBadge = document.getElementById('cart-badge');
+            let cartCount = 0;
+
+            addButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Increment count
+                    cartCount++;
+                    cartBadge.textContent = cartCount;
+
+                    // Add pop animation class
+                    cartBadge.classList.remove('animate-pop');
+                    // Trigger reflow to restart animation
+                    void cartBadge.offsetWidth;
+                    cartBadge.classList.add('animate-pop');
+
+                    // Optional: Visual feedback on button
+                    const originalHTML = button.innerHTML;
+                    button.innerHTML = `<span class="text-xl font-light leading-none -mb-1">✓</span><span class="text-[11px] font-medium leading-none">Added</span>`;
+                    setTimeout(() => {
+                        button.innerHTML = originalHTML;
+                    }, 1000);
+                });
+            });
+
+            // --- Carousel Logic ---
+            const carousel = document.getElementById('product-carousel');
+            const reviewsCarousel = document.getElementById('reviews-carousel'); // Added reviews carousel
+            const scrollRightBtn = document.getElementById('scroll-right');
+
+            if (scrollRightBtn && carousel) {
+                scrollRightBtn.addEventListener('click', () => {
+                    // Scroll right by the width of one card + gap (300px + 24px)
+                    carousel.scrollBy({ left: 324, behavior: 'smooth' });
+                });
+            }
+
+            // Optional dragging logic for desktop carousel
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.classList.add('active:cursor-grabbing');
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.classList.remove('active:cursor-grabbing');
+            });
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.classList.remove('active:cursor-grabbing');
+            });
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+
+            // Added drag for Reviews Carousel
+            if (reviewsCarousel) {
+                let isDownReviews = false;
+                let startXReviews;
+                let scrollLeftReviews;
+
+                reviewsCarousel.addEventListener('mousedown', (e) => {
+                    isDownReviews = true;
+                    reviewsCarousel.classList.add('active:cursor-grabbing');
+                    startXReviews = e.pageX - reviewsCarousel.offsetLeft;
+                    scrollLeftReviews = reviewsCarousel.scrollLeft;
+                });
+                reviewsCarousel.addEventListener('mouseleave', () => {
+                    isDownReviews = false;
+                    reviewsCarousel.classList.remove('active:cursor-grabbing');
+                });
+                reviewsCarousel.addEventListener('mouseup', () => {
+                    isDownReviews = false;
+                    reviewsCarousel.classList.remove('active:cursor-grabbing');
+                });
+                reviewsCarousel.addEventListener('mousemove', (e) => {
+                    if (!isDownReviews) return;
+                    e.preventDefault();
+                    const x = e.pageX - reviewsCarousel.offsetLeft;
+                    const walk = (x - startXReviews) * 2;
+                    reviewsCarousel.scrollLeft = scrollLeftReviews - walk;
+                });
+            }
+
+            // --- Journal Carousel Logic ---
+            const journalCarousel = document.getElementById('journal-carousel');
+            const journalRightBtn = document.getElementById('journal-right');
+
+            if (journalCarousel && journalRightBtn) {
+                // Scroll Right
+                journalRightBtn.addEventListener('click', () => {
+                    // Scroll by card width + gap (300 + 16 = 316)
+                    journalCarousel.scrollBy({ left: 316, behavior: 'smooth' });
+                });
+
+                // Drag to scroll
+                let isDownJournal = false;
+                let startXJournal;
+                let scrollLeftJournal;
+
+                journalCarousel.addEventListener('mousedown', (e) => {
+                    isDownJournal = true;
+                    journalCarousel.classList.add('active:cursor-grabbing');
+                    startXJournal = e.pageX - journalCarousel.offsetLeft;
+                    scrollLeftJournal = journalCarousel.scrollLeft;
+                });
+                journalCarousel.addEventListener('mouseleave', () => {
+                    isDownJournal = false;
+                    journalCarousel.classList.remove('active:cursor-grabbing');
+                });
+                journalCarousel.addEventListener('mouseup', () => {
+                    isDownJournal = false;
+                    journalCarousel.classList.remove('active:cursor-grabbing');
+                });
+                journalCarousel.addEventListener('mousemove', (e) => {
+                    if (!isDownJournal) return;
+                    e.preventDefault();
+                    const x = e.pageX - journalCarousel.offsetLeft;
+                    const walk = (x - startXJournal) * 2;
+                    journalCarousel.scrollLeft = scrollLeftJournal - walk;
+                });
+            }
+
+            // --- Functional Latte Mix Carousel Logic ---
+            const latteCarousel = document.getElementById('latte-carousel');
+            const latteLeftBtn = document.getElementById('latte-left');
+            const latteRightBtn = document.getElementById('latte-right');
+
+            if (latteCarousel && latteLeftBtn && latteRightBtn) {
+                // Scroll Right
+                latteRightBtn.addEventListener('click', () => {
+                    latteCarousel.scrollBy({ left: latteCarousel.offsetWidth, behavior: 'smooth' });
+                });
+
+                // Scroll Left
+                latteLeftBtn.addEventListener('click', () => {
+                    latteCarousel.scrollBy({ left: -latteCarousel.offsetWidth, behavior: 'smooth' });
+                });
+
+                // Optional: Drag functionality for the Latte carousel
+                let isDownLatte = false;
+                let startXLatte;
+                let scrollLeftLatte;
+
+                latteCarousel.addEventListener('mousedown', (e) => {
+                    isDownLatte = true;
+                    latteCarousel.classList.add('active:cursor-grabbing');
+                    startXLatte = e.pageX - latteCarousel.offsetLeft;
+                    scrollLeftLatte = latteCarousel.scrollLeft;
+                });
+                latteCarousel.addEventListener('mouseleave', () => {
+                    isDownLatte = false;
+                    latteCarousel.classList.remove('active:cursor-grabbing');
+                });
+                latteCarousel.addEventListener('mouseup', () => {
+                    isDownLatte = false;
+                    latteCarousel.classList.remove('active:cursor-grabbing');
+                });
+                latteCarousel.addEventListener('mousemove', (e) => {
+                    if (!isDownLatte) return;
+                    e.preventDefault();
+                    const x = e.pageX - latteCarousel.offsetLeft;
+                    const walk = (x - startXLatte) * 2;
+                    latteCarousel.scrollLeft = scrollLeftLatte - walk;
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
